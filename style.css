@@ -300,6 +300,7 @@ h3.mon-domaine
 .btn:hover
 {
     transform: scale(1.05s);
+    letter-spacing: 4px;
 }
 
 .home-img::after
