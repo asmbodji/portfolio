@@ -807,3 +807,75 @@ h3.mon-domaine
     padding: 0 50px;
 }
 
+
+
+@media only screen and (max-width: 768px) {
+    /* Adjust aside width and main content */
+    .aside {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px;
+    }
+
+    .main-content {
+        padding-left: 0;
+    }
+
+    /* Adjust the logo size */
+    .aside .logo {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    /* Navigation adjustments */
+    .aside .nav {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .aside .nav li {
+        margin-bottom: 10px;
+    }
+
+    /* Adjust sections for smaller screen */
+    .home .home-info, 
+    .home .home-img {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .home-img img {
+        height: auto;
+        width: 100%;
+    }
+
+    /* General text and layout adjustments */
+    h3.hello, h3.mon-domaine {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Mobile-specific styles */
+    .home .home-info, 
+    .home .home-img {
+        text-align: center;
+    }
+
+    .home .home-img img {
+        height: auto;
+        width: 100%;
+    }
+
+    h3.hello, h3.mon-domaine {
+        font-size: 18px;
+    }
+}
