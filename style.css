@@ -809,114 +809,76 @@ h3.mon-domaine
 
 
 
-@media only screen and (max-width: 600px) {
-    /* Stack navigation vertically and adjust padding */
-    .aside {
-        width: 100%;
-        position: relative;
-        height: auto;
-    }
-
-    .aside .nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .aside .nav li {
-        margin-bottom: 15px;
-    }
-
-    /* Make content sections take full width */
-    .main-content {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .row {
-        flex-direction: column;
-    }
-
-    /* Text alignment adjustments */
-    .home .home-info {
-        text-align: center;
-    }
-
-    /* Reduce the size of the home image */
-    .home .home-img img {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    /* Reduce font size for smaller screens */
-    h3.hello, h3.mon-domaine {
-        font-size: 16px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 10px 20px;
-    }
-}
-
-/* For extra small devices (phones, 400px and below) */
-@media only screen and (max-width: 400px) {
-    /* Adjust button sizes */
-    .btn {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
-
-    /* Fine-tune text for readability */
-    h3.hello, h3.mon-domaine {
-        font-size: 14px;
-    }
-
-    p {
-        font-size: 12px;
-    }
-
-    /* Reduce image size further */
-    .home .home-img img {
-        width: 100%;
-        max-width: 250px;
-    }
-}
-
-
-@media only screen and (max-width: 600px) {
-    .padd-15 {
-        padding: 5px;
-    }
-
-    .section-title h2 {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-
-    /* Reduce margin around sections */
-    .section {
-        padding: 10px 15px;
-    }
-}
-
 
 
 @media only screen and (max-width: 768px) {
+    /* Adjust aside width and main content */
     .aside {
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px;
     }
 
-    .aside.open {
-        transform: translateX(0);
+    .main-content {
+        padding-left: 0;
     }
 
-    .nav-toggler {
+    /* Adjust the logo size */
+    .aside .logo {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    /* Navigation adjustments */
+    .aside .nav {
         display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .aside .nav li {
+        margin-bottom: 10px;
+    }
+
+    /* Adjust sections for smaller screen */
+    .home .home-info, 
+    .home .home-img {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .home-img img {
+        height: auto;
+        width: 100%;
+    }
+
+    /* General text and layout adjustments */
+    h3.hello, h3.mon-domaine {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Mobile-specific styles */
+    .home .home-info, 
+    .home .home-img {
+        text-align: center;
+    }
+
+    .home .home-img img {
+        height: auto;
+        width: 100%;
+    }
+
+    h3.hello, h3.mon-domaine {
+        font-size: 18px;
     }
 }
 
