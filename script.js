@@ -1,5 +1,5 @@
 var typed = new Typed(".typing",{
-    strings:["Technicien informatique industrielle","Technicien vision industrielle","Dev web"],
+    strings:["Technicien informatique industrielle","Technicien vision industrielle","Développeur web, mobile"],
     typeSpeed:100,
     BackSpeed:60,
     loop:true
