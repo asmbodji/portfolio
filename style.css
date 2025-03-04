@@ -724,6 +724,32 @@ h3.mon-domaine
 }
 
 
+.portfolio-items {
+    display: flex; /* Aligner horizontalement */
+    justify-content: center; /* Centrer les éléments */
+    flex-wrap: wrap; /* Permettre le retour à la ligne si l'écran est petit */
+    gap: 20px; /* Espacement entre les projets */
+}
+
+.portfolio-item {
+    width: 30%; /* Ajuste la largeur pour afficher 3 projets en ligne */
+    text-align: center; /* Centrer le texte */
+}
+
+.portfolio-img img {
+    width: 100%; /* Adapter l'image à la carte */
+    border-radius: 8px; /* Coins arrondis pour un meilleur design */
+}
+
+.portfolio-img video {
+    width: 100%; /* La vidéo prendra toute la largeur du conteneur */
+    height: auto; /* Ajuste automatiquement la hauteur pour garder les proportions */
+    max-height: 300px; /* Définis une hauteur maximale pour éviter une vidéo trop grande */
+    object-fit: cover; /* Empêche les distorsions en remplissant bien l'espace */
+    border-radius: 8px; /* Coins arrondis pour un meilleur rendu */
+}
+
+
 .contact-title{
     color: var(--skin-color);
     text-align: center;
