@@ -688,6 +688,14 @@ h3.mon-domaine
     padding-bottom: 40px;
 }
 
+.portfolio .portfolio-item-inner {
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio .portfolio-item-inner:hover {
+    transform: scale(1.05);
+}
+
 
 .portfolio .portfolio-heading
 {
