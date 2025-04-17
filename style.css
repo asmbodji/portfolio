@@ -1103,3 +1103,206 @@ h3.mon-domaine
 body.menu-open {
     overflow: hidden;
 } */
+
+
+.btn-toggle {
+    margin-left: 15px;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #e24a5e;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-toggle:hover {
+    background-color: #d13d52;
+    transform: scale(1.05);
+}
+
+.btn-toggle::after {
+    content: '▼';
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-toggle.active::after {
+    transform: rotate(-180deg);
+}
+
+.diplome-section {
+    width: 100%;
+}
+
+.btn-diplome-toggle {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ee1e1e;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-diplome-toggle:hover {
+    background-color: #c63a4e;
+    transform: scale(1.05);
+}
+
+.diplome-content {
+    max-width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    max-height: 0;
+    overflow: hidden;
+}
+
+.diplome-content.show {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 2000px; /* large pour permettre à tout le contenu d'apparaître */
+}
+
+.diplome-card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 25px;
+    border-left: 3px solid #e24a5e;
+}
+
+.timeline-item .circle-dot {
+    position: absolute;
+    left: -9px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: #e24a5e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff;
+}
+
+.timeline-date {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.timeline-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.timeline-text {
+    font-size: 15px;
+    color: #444;
+}
+
+.formation-section {
+    width: 100%;
+}
+
+.btn-formation-toggle {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ee1e1e;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-formation-toggle:hover {
+    background-color: #c63a4e;
+    transform: scale(1.05);
+}
+
+.formation-content {
+    max-width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    max-height: 0;
+    overflow: hidden;
+}
+
+.formation-content.show {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 2000px;
+}
+
+.formation-card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 25px;
+    border-left: 3px solid #e24a5e;
+}
+
+.timeline-item .circle-dot {
+    position: absolute;
+    left: -9px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: #e24a5e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff;
+}
+
+.timeline-date {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.timeline-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.timeline-text {
+    font-size: 15px;
+    color: #444;
+}
