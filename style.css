@@ -1331,3 +1331,45 @@ body.menu-open {
 .mention-bien {
     background-color: #27ae60; /* vert */
 }
+
+/* Section Logiciels maîtrisés */
+.software-skills {
+    margin-top: 40px;
+    padding: 15px;
+}
+
+.software-skills h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.software-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+}
+
+.software-logos img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.software-logos img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+.software-skills {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
