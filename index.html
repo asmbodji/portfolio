@@ -103,11 +103,14 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="buttons padd-15">
-                                        <a href="CURRICULUMASMb.pdf" class="btn">Télécharger CV</a>
-                                        <a href="#contact" class="btn engagez moi">engagez-moi</a>
-                                    </div>
-                                </div>
+    <div class="buttons padd-15" style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="CURRICULUMASMb.pdf" class="btn">Télécharger CV</a>
+        <a href="#contact" class="btn engagez-moi">engagez-moi</a>
+        <button class="btn" onclick="openModal('modal-projets')">Voir mes projets en détail</button>
+        <button class="btn" onclick="openModal('modal-competences')">Mes compétences clés & objectifs pro</button>
+    </div>
+</div>
+
                             </div>
                             <div class="skills padd-15">
                                 <div class="row">
@@ -258,6 +261,50 @@
                             </div>
                         </div>
                         
+                        <!-- Modal Projets -->
+<div id="modal-projets" class="custom-modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal-projets')">Fermer ✖</button>
+    <h3>Mes projets en détail</h3>
+    <p>Voici quelques projets que j’ai réalisés et auxquels j’ai participé :</p>
+    <ul style="text-align: left; padding-left: 1.2rem;">
+      <li><strong>🎮 GreenQuest :</strong> jeu interactif avec figurines connectées (JS, Arduino, Unity).</li>
+      <li><strong>🧠 Le Labyrinthe :</strong> mini-jeu d’évasion style escape game avec enigme (Unity + C#).</li>
+      <li><strong>📱 Flexibook :</strong> app mobile de prise de rdv en ligne connectée à Firebase.</li>
+      <li><strong>🌐 Multimédia Store :</strong> site web e-commerce.</li>
+      <li><strong>🔐 Interface d’administration réseau :</strong> détection d’anomalies via scripts Python et SNMP.</li>
+      <li><strong>🤖 Vision robotique :</strong> traitement d’image en temps réel avec Halcon (projet universitaire).</li>
+    </ul>
+    <p>👉 <a href="#contact">Contacte-moi</a> si tu veux en savoir plus ou tester un de ces projets.</p>
+  </div>
+</div>
+
+<!-- Modal Compétences & Objectifs -->
+<div id="modal-competences" class="custom-modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal('modal-competences')">Fermer ✖</button>
+    <h3>Mes compétences clés & objectifs professionnels</h3>
+    <h4>🔧 Compétences techniques principales :</h4>
+    <ul style="text-align: left; padding-left: 1.2rem;">
+      <li><strong>Développement :</strong> Python, C++, Java, JS, Flutter, PHP, MySQL</li>
+      <li><strong>Front-end :</strong> HTML, CSS, Bootstrap, React (en cours), Tailwind</li>
+      <li><strong>Back-end :</strong> Node.js, Express, Firebase, API REST</li>
+      <li><strong>Mobile & IA :</strong> Flutter, TensorFlow, OpenCV</li>
+      <li><strong>Réseaux & systèmes :</strong> Linux, Sécurité réseau, Shell script</li>
+    </ul>
+    <h4>🎯 Objectifs professionnels :</h4>
+    <p>
+      Je souhaite intégrer une entreprise innovante pour travailler sur :
+    </p>
+    <ul style="text-align: left; padding-left: 1.2rem;">
+      <li>🧠 des projets en intelligence artificielle ou data</li>
+      <li>📱 des solutions mobiles ou interactives pour le multimédia</li>
+      <li>🔗 l’intégration de systèmes connectés et IoT</li>
+    </ul>
+    <p>Je suis motivé à apprendre, évoluer, et à contribuer à des produits à fort impact. 💪</p>
+  </div>
+</div>
+
         </section>
             
         <section class="service section" id="service">
@@ -669,6 +716,14 @@
     });
 </script>
 
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = "flex";
+}
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+</script>
 
 
 
