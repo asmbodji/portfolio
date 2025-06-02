@@ -58,7 +58,7 @@
             </div>
         </div>
      </section>
-
+              
      <section id="about" data-aos="fade-right" data-aos-duration="1000">
         ...
     </section>
@@ -405,93 +405,105 @@
         <img src="images/logo/bootstrap.png" alt="BootStrap" title="BootStrap">
     </div>
 </div>
+
         </section>
 
         <section class="portfolio section" id="portfolio">
-            <div class="container">
-                <div class="row">
-                    <div class="section-title padd-15">
-                        <h2>Portfolio</h2>
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>Portfolio</h2>
+            </div>
+        </div>
+
+        <!-- Filtres -->
+        <div class="portfolio-filter padd-15">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="app">App</button>
+            <button class="filter-btn" data-filter="ia">Machine Vision</button>
+            <button class="filter-btn" data-filter="jeu">Jeu</button>
+        </div>
+
+        <!-- Projets -->
+        <div class="row portfolio-items">
+            <!-- Projet 1 - Web -->
+            <div class="portfolio-item web">
+                <div class="portfolio-item-inner shadow-dark">
+                    <div class="portfolio-img">
+                        <img src="./im1.jpg" alt="Projet BTS">
+                    </div>
+                    <h3>Mon projet BTS : Réalisation d'un site web e-commerce pour une entreprise</h3>
+                    <div class="portfolio-btn">
+                        <button class="btn-see-more"
+                                onclick="openPopup(this)"
+                                data-image="./im1.jpg"
+                                data-title="Mon projet BTS : Réalisation d'un site web e-commerce pour une entreprise">
+                            Voir plus
+                        </button>
                     </div>
                 </div>
-                <div class="row portfolio-items">
-                    <!-- Projet 1 -->
-                    <!-- Projet 1 -->
-<div class="portfolio-item">
-    <div class="portfolio-item-inner shadow-dark">
-        <div class="portfolio-img">
-            <img src="./im1.jpg" alt="Projet BTS">
-        </div>
-        <h3>Mon projet BTS : Réalisation d'un site web e-commerce pour une entreprise</h3>
-        <div class="portfolio-btn">
-            <button class="btn-see-more"
-                onclick="openPopup(this)"
-                data-image="./im1.jpg"
-                data-title="Mon projet BTS : Réalisation d'un site web e-commerce pour une entreprise"
-            >
-                Voir plus
-            </button>
-        </div>
-    </div>
-</div>
-<div class="portfolio-item">
-    <div class="portfolio-item-inner shadow-dark">
-        <div class="portfolio-img">
-            <img src="./imge.png" alt="Projet BTS">
-        </div>
-        <h3>Mon projet tuteuré en licence pro vri</h3>
-        <div class="portfolio-btn">
-            <button class="btn-see-more"
-                onclick="openPopup(this)"
-                data-image="./imge.png"
-                data-title="Description : Développement de système de métrologie basés sur Halcon"
-            >
-                Voir plus
-            </button>
-        </div>
-    </div>
-</div>
-<div class="portfolio-item">
-    <div class="portfolio-item-inner shadow-dark">
-        <div class="portfolio-img">
-            <img src="./rhiz.png" alt="Projet BTS">
-        </div>
-        <h3>Mon projet Master : GreenQuest, jeux interactifs (en cours)</h3>
-        <div class="portfolio-btn">
-            <button class="btn-see-more"
-                onclick="openPopup(this)"
-                data-image="./greenquest.gif"
-                data-title="Description : GreenQuest, jeux interactifs sur la protection de l'environnement (en cours)"
-            >
-                Voir plus
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Projet 2 -->
-<div class="portfolio-item">
-    <div class="portfolio-item-inner shadow-dark">
-        <div class="portfolio-img video">
-            <video controls>
-                <source src="./video.mp4" type="video/mp4">
-            </video>
-        </div>
-        <h3>Mon projet Master: Application mobile de prise de rendez-vous en ligne</h3>
-        <div class="portfolio-btn">
-            <button class="btn-see-more"
-                onclick="openPopup(this)"
-                data-image="./flex.png"
-                data-title="Mon projet Master: Application mobile de prise de rendez-vous en ligne"
-            >
-                Voir plus
-            </button>
-        </div>
-    </div>
-</div>
-
             </div>
-        </section>
+
+            <!-- Projet 2 - VR -->
+            <div class="portfolio-item ia">
+                <div class="portfolio-item-inner shadow-dark">
+                    <div class="portfolio-img">
+                        <img src="./imge.png" alt="Projet IA">
+                    </div>
+                    <h3>Mon projet tuteuré en licence pro VRI</h3>
+                    <div class="portfolio-btn">
+                        <button class="btn-see-more"
+                                onclick="openPopup(this)"
+                                data-image="./imge.png"
+                                data-title="Description : Développement de système de métrologie basés sur Halcon">
+                            Voir plus
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 - Jeu -->
+            <div class="portfolio-item jeu">
+                <div class="portfolio-item-inner shadow-dark">
+                    <div class="portfolio-img">
+                        <img src="./rhiz.png" alt="Projet Jeu">
+                    </div>
+                    <h3>Mon projet Master : GreenQuest, jeux interactifs (en cours)</h3>
+                    <div class="portfolio-btn">
+                        <button class="btn-see-more"
+                                onclick="openPopup(this)"
+                                data-image="./greenquest.gif"
+                                data-title="Description : GreenQuest, jeux interactifs sur la protection de l'environnement (en cours)">
+                            Voir plus
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 4 - App -->
+            <div class="portfolio-item app">
+                <div class="portfolio-item-inner shadow-dark">
+                    <div class="portfolio-img video">
+                        <video controls>
+                            <source src="./video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <h3>Mon projet Master: Application mobile de prise de rendez-vous en ligne</h3>
+                    <div class="portfolio-btn">
+                        <button class="btn-see-more"
+                                onclick="openPopup(this)"
+                                data-image="./flex.png"
+                                data-title="Mon projet Master: Application mobile de prise de rendez-vous en ligne">
+                            Voir plus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
         
         
         </section>
@@ -730,6 +742,29 @@ function closeModal(id) {
 }
 </script>
 
+<script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".portfolio-item");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filter = button.getAttribute("data-filter");
+
+            // Bouton actif
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // Affichage
+            items.forEach(item => {
+                if (filter === "all" || item.classList.contains(filter)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
 
 
 </body>
