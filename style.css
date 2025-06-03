@@ -1433,3 +1433,23 @@ body.menu-open {
     background-color: #e91e63;
     color: #fff;
 }
+
+.btn-visit-site {
+    display: inline-block;
+    background-color: #ee1e1e; /* rouge doux */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-visit-site:hover {
+    background-color: #218838;
+    text-decoration: none;
+    color: white;
+}
+
+
