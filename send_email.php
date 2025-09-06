@@ -1,23 +1,12 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $subject = htmlspecialchars($_POST["subject"]);
-    $message = htmlspecialchars($_POST["message"]);
+<form action="https://getform.io/f/bmdyjdja" method="POST">
+  <label for="name">Nom :</label>
+  <input type="text" id="name" name="name" required>
 
-    $to = "asmbodj@hotmail.com";  // Ton adresse email
-    $headers = "From: $email" . "\r\n" .
-               "Reply-To: $email" . "\r\n" .
-               "Content-Type: text/plain; charset=UTF-8";
+  <label for="email">Email :</label>
+  <input type="email" id="email" name="email" required>
 
-    $fullMessage = "Nom: $name\nEmail: $email\nSujet: $subject\nMessage:\n$message";
+  <label for="message">Message :</label>
+  <textarea id="message" name="message" required></textarea>
 
-    if (mail($to, $subject, $fullMessage, $headers)) {
-        echo "Message envoyé avec succès !";
-    } else {
-        echo "Erreur lors de l'envoi du message.";
-    }
-} else {
-    echo "Accès non autorisé.";
-}
-?>
+  <button type="submit">Envoyer</button>
+</form>
