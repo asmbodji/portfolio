@@ -163,46 +163,109 @@
                         <!-- Logiciels maîtrisés -->
 
 
-                        <div class="formation-section padd-15">
-                            <h3 class="title">
-                                Formation
-                                <button id="toggle-formation" class="btn-formation-toggle">Afficher ▼</button>
-                            </h3>
-                            <div class="formation-content animated-collapse" id="formation-box">
-                                <div class="formation-card">
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2025 - 2026</h3>
-                                        <h4 class="timeline-title">Master 2 Technologie & Développement Multimédia</h4>
-                                        <p class="timeline-text">À l'Université de Marie & Louis Pasteur 🇫🇷</p>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2024 - 2025</h3>
-                                        <h4 class="timeline-title">Master 1 Technologie de l'information Produits & Services Multimédia</h4>
-                                        <p class="timeline-text">À l'Université de Marie & Louis Pasteur 🇫🇷</p>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 - 2024</h3>
-                                        <h4 class="timeline-title">Licence Pro Vision pour la robotique industrielle</h4>
-                                        <p class="timeline-text">À l'Université de Nîmes 🇫🇷</p>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022 - 2023</h3>
-                                        <h4 class="timeline-title">Licence Pro Administration et Sécurité des réseaux</h4>
-                                        <p class="timeline-text">À l'École Supérieure Multinationale de Télécom 🇸🇳</p>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2021 - 2022</h3>
-                                        <h4 class="timeline-title">2ème année BTS en Informatique industrielle et Réseau</h4>
-                                        <p class="timeline-text">Au Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       <div class="formation-section padd-15">
+    <h3 class="title">
+        Formation
+        <button id="toggle-formation" class="btn-formation-toggle">Afficher ▼</button>
+    </h3>
+    <div class="formation-content animated-collapse" id="formation-box">
+        <div class="formation-card">
+
+            <!-- Master 1 -->
+            <div class="timeline-item">
+                <div class="circle-dot"></div>
+                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2024 - 2025</h3>
+                <h4 class="timeline-title">
+                    Master 1 Technologie de l'information Produits & Services Multimédia
+                    <span class="tag">M1 validé</span>
+                    <span class="info-icon" onclick="toggleInfo()">ℹ️</span>
+                </h4>
+                <p class="timeline-text">À l'Université de Marie & Louis Pasteur 🇫🇷</p>
+                
+                <!-- Info box cachée -->
+                <div id="info-box" class="info-box">
+                    J’avais prévu de poursuivre en Master 2 TDM, mais j’ai été affecté au parcours CCAM, 
+                    qui ne correspondait ni à mon projet professionnel ni a mon parcours académique. 
+                    C’est pourquoi je n’ai pas poursuivi le M2. 
+                </div>
+            </div>
+
+            <!-- Licence Pro Vision -->
+            <div class="timeline-item">
+                <div class="circle-dot"></div>
+                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 - 2024</h3>
+                <h4 class="timeline-title">Licence Pro Vision pour la robotique industrielle</h4>
+                <p class="timeline-text">À l'Université de Nîmes 🇫🇷</p>
+            </div>
+
+            <!-- Licence Pro Admin -->
+            <div class="timeline-item">
+                <div class="circle-dot"></div>
+                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022 - 2023</h3>
+                <h4 class="timeline-title">Licence Pro Administration et Sécurité des réseaux</h4>
+                <p class="timeline-text">À l'École Supérieure Multinationale de Télécom 🇸🇳</p>
+            </div>
+
+            <!-- BTS -->
+            <div class="timeline-item">
+                <div class="circle-dot"></div>
+                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2021 - 2022</h3>
+                <h4 class="timeline-title">2ème année BTS en Informatique industrielle et Réseau</h4>
+                <p class="timeline-text">Au Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS à ajouter -->
+<style>
+    .tag {
+        display: inline-block;
+        margin-left: 10px;
+        padding: 2px 8px;
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+        background-color: #007BFF; /* bleu */
+        border-radius: 12px;
+    }
+
+    .info-icon {
+        margin-left: 8px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .info-box {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background: #f8f9fa;
+        border-left: 3px solid #007BFF;
+        border-radius: 6px;
+        font-size: 13px;
+        color: #333;
+        max-width: 500px;
+    }
+
+    .info-box.show {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-5px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+
+<!-- JS à ajouter -->
+<script>
+    function toggleInfo() {
+        document.getElementById("info-box").classList.toggle("show");
+    }
+</script>
+
                         
                         
                         <div class="diplome-section padd-15">
@@ -429,6 +492,8 @@
             <button class="filter-btn" data-filter="jeu">Jeu</button>
         </div>
 
+
+        
         <!-- Projets -->
         <div class="row portfolio-items">
             <!-- Projet 1 - Web -->
