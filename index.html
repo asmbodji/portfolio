@@ -680,28 +680,63 @@ l’informatique, avec un intérêt particulier pour les technologies web.
                 <h3 class="contact-title padd-15">Avez-vous des Questions ?</h3>
                 <h4 class="contact-sub-title padd-15">JE SUIS À VOTRE SERVICE</h4>
         
-                <div class="row">
-                    <div class="contact-info-item padd-15">
-                        <div class="icon"><i class="fa fa-phone"></i></div>
-                        <h4>Appelez Moi</h4>
-                        <p>0758864201</p>
-                    </div>
-                    <div class="contact-info-item padd-15">
-                        <div class="icon"><i class="fa fa-map-marker"></i></div>
-                        <h4>Adresse</h4>
-                        <p>33 rue Ernest Thierry Mieg, Belfort</p>
-                    </div>
-                    <div class="contact-info-item padd-15">
-                        <div class="icon"><i class="fa fa-envelope"></i></div>
-                        <h4>Email</h4>
-                        <p>asmbodj@hotmail.com</p>
-                    </div>
-                    <div class="contact-info-item padd-15">
-                        <div class="icon"><i class="fa fa-clock"></i></div>
-                        <h4>Disponibilité</h4>
-                        <p>Lun - Ven : 9h - 17h</p>
-                    </div>
-                </div>
+                <div class="row contact-buttons">
+  <a href="tel:0758864201" class="contact-card padd-15">
+    <div class="icon"><i class="fa fa-phone"></i></div>
+    <h4>Appelez Moi</h4>
+    <p>0758864201</p>
+  </a>
+
+  <a href="https://www.google.com/maps?q=33+rue+Ernest+Thierry+Mieg,+Belfort" target="_blank" class="contact-card padd-15">
+    <div class="icon"><i class="fa fa-map-marker"></i></div>
+    <h4>Adresse</h4>
+    <p>33 rue Ernest Thierry Mieg, Belfort</p>
+  </a>
+
+  <a href="mailto:asmbodj@hotmail.com" class="contact-card padd-15">
+    <div class="icon"><i class="fa fa-envelope"></i></div>
+    <h4>Email</h4>
+    <p>asmbodj@hotmail.com</p>
+  </a>
+
+  <div class="contact-card padd-15" id="availability-card">
+  <div class="icon"><i class="fa fa-clock"></i></div>
+  <h4>Disponibilité</h4>
+  <p>Cliquez pour voir</p>
+</div>
+
+<!-- Calendrier popup -->
+<div id="calendar-popup" class="calendar-popup">
+  <div class="calendar-content">
+    <span class="close-btn" id="closeCalendar">&times;</span>
+    <h3>Disponibilités</h3>
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th>Lun</th>
+          <th>Mar</th>
+          <th>Mer</th>
+          <th>Jeu</th>
+          <th>Ven</th>
+          <th>Sam</th>
+          <th>Dim</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="available">9h - 12h</td>
+          <td class="available">9h - 12h</td>
+          <td class="available">9h - 11h</td>
+          <td class="unavailable">Fermé</td>
+          <td class="available">14h - 17h</td>
+          <td class="unavailable">Fermé</td>
+          <td class="unavailable">Fermé</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
         
                 <h3 class="contact-title padd-15">ENVOYEZ MOI UN MESSAGE</h3>
                 <h4 class="contact-sub-title padd-15">JE VOUS RÉPONDRAI DANS LES PLUS BREFS DÉLAIS</h4>
@@ -959,6 +994,26 @@ window.addEventListener('scroll', activateNavLinkOnScroll);
 // Exécute au chargement pour l'état initial
 window.addEventListener('load', activateNavLinkOnScroll);
 
+</script>
+<script>
+  const calendarCard = document.getElementById("availability-card");
+  const calendarPopup = document.getElementById("calendar-popup");
+  const closeCalendar = document.getElementById("closeCalendar");
+
+  calendarCard.addEventListener("click", () => {
+    calendarPopup.style.display = "flex";
+  });
+
+  closeCalendar.addEventListener("click", () => {
+    calendarPopup.style.display = "none";
+  });
+
+  // Fermer en cliquant à l'extérieur
+  window.addEventListener("click", (e) => {
+    if (e.target === calendarPopup) {
+      calendarPopup.style.display = "none";
+    }
+  });
 </script>
 
 
