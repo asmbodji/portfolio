@@ -26,21 +26,28 @@
 <body>
        <div class="main-container">
      <div class="aside">
-        <div class="logo">
-            <a href="#"><span>A</span>SM</a>
-        </div>
-        <div class="nav-toggler">
-            <span></span>
-        </div>
-        <ul class="nav">
-            <li><a href="#home" class="active"><i class="fa fa-home"></i>Accueil</a></li>
-            <li><a href="#about"><i class="fa fa-user"></i>A Propos</a></li>
-            <li><a href="#service"><i class="fa fa-list"></i>Compétences</a></li>
-            <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a></li>
-            <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
-
-        </ul>
-     </div>   
+    <div class="logo">
+        <a href="#"><span>A</span>SM</a>
+    </div>
+    <div class="nav-toggler">
+        <span></span>
+    </div>
+    
+    <!-- AJOUT: Photo et infos pour le menu mobile -->
+    <div class="profile-mobile">
+        <img src="pho.png" alt="Amadou Sow Mbodji">
+        <h3>Amadou Sow Mbodji</h3>
+        <p>Technicien Informatique industrielle</p>
+    </div>
+    
+    <ul class="nav">
+        <li><a href="#home" class="active"><i class="fa fa-home"></i>Accueil</a></li>
+        <li><a href="#about"><i class="fa fa-user"></i>A Propos</a></li>
+        <li><a href="#service"><i class="fa fa-list"></i>Compétences</a></li>
+        <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a></li>
+        <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
+    </ul>
+</div>
      <div class="main-content">
      <section class="home section" id="home">
         <div class="container">
@@ -1058,57 +1065,197 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-    // Navigation mobile - Version corrigée
+    // Navigation mobile
 document.addEventListener('DOMContentLoaded', function() {
     const navToggler = document.querySelector('.nav-toggler');
     const aside = document.querySelector('.aside');
-    const body = document.body;
-
-    function toggleMenu() {
-        aside.classList.toggle('open');
-        body.classList.toggle('aside-open');
-    }
-
-    function closeMenu() {
-        aside.classList.remove('open');
-        body.classList.remove('aside-open');
-    }
-
+    
+    console.log('Nav toggler:', navToggler); // Debug
+    console.log('Aside:', aside); // Debug
+    
     if (navToggler && aside) {
-        // Ouvrir/fermer le menu
         navToggler.addEventListener('click', function(e) {
-            e.stopPropagation();
-            toggleMenu();
+            e.stopPropagation(); // Empêche la fermeture immédiate
+            aside.classList.toggle('open');
+            document.body.classList.toggle('aside-open');
+            console.log('Menu clicked, open:', aside.classList.contains('open')); // Debug
         });
-
+        
         // Fermer le menu en cliquant sur un lien
         const navLinks = document.querySelectorAll('.aside .nav a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 991) {
-                    closeMenu();
+                    aside.classList.remove('open');
+                    document.body.classList.remove('aside-open');
                 }
             });
         });
-
+        
         // Fermer le menu en cliquant à l'extérieur
         document.addEventListener('click', function(e) {
             if (window.innerWidth <= 991 && 
                 aside.classList.contains('open') &&
                 !aside.contains(e.target) && 
-                e.target !== navToggler && 
                 !navToggler.contains(e.target)) {
-                closeMenu();
+                aside.classList.remove('open');
+                document.body.classList.remove('aside-open');
             }
         });
-
-        // Fermer le menu en redimensionnant la fenêtre
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 991) {
-                closeMenu();
-            }
-        });
+    } else {
+        console.error('Nav toggler or aside not found!');
     }
+});
+</script>
+<!-- Menu flottant mobile -->
+<div class="floating-menu">
+    <button class="floating-menu-btn" id="floatingMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="floating-menu-items" id="floatingMenuItems">
+        <a href="#home" class="floating-menu-item" onclick="closeFloatingMenu()">
+            <i class="fa fa-home"></i>
+            Accueil
+        </a>
+        <a href="#about" class="floating-menu-item" onclick="closeFloatingMenu()">
+            <i class="fa fa-user"></i>
+            À Propos
+        </a>
+        <a href="#service" class="floating-menu-item" onclick="closeFloatingMenu()">
+            <i class="fa fa-list"></i>
+            Compétences
+        </a>
+        <a href="#portfolio" class="floating-menu-item" onclick="closeFloatingMenu()">
+            <i class="fa fa-briefcase"></i>
+            Portfolio
+        </a>
+        <a href="#contact" class="floating-menu-item" onclick="closeFloatingMenu()">
+            <i class="fa fa-comments"></i>
+            Contact
+        </a>
+    </div>
+</div>
+
+<!-- Overlay pour fermer le menu -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeFloatingMenu()"></div>
+<script>
+    // Version améliorée avec gestion plus fine du scroll
+const floatingMenu = document.querySelector('.floating-menu');
+const floatingMenuBtn = document.getElementById('floatingMenuBtn');
+const floatingMenuItems = document.getElementById('floatingMenuItems');
+const menuOverlay = document.getElementById('menuOverlay');
+
+let lastScrollTop = 0;
+let scrollTimeout;
+let menuVisible = true;
+const SCROLL_THRESHOLD = 100; // Seuil de scroll en pixels
+const HIDE_DELAY = 150; // Délai avant de cacher
+
+function showFloatingMenu() {
+    if (!menuVisible) {
+        floatingMenu.style.transition = 'all 0.3s ease';
+        floatingMenu.classList.remove('hidden');
+        floatingMenu.classList.add('visible');
+        menuVisible = true;
+    }
+}
+
+function hideFloatingMenu() {
+    if (menuVisible) {
+        floatingMenu.style.transition = 'all 0.3s ease';
+        floatingMenu.classList.remove('visible');
+        floatingMenu.classList.add('hidden');
+        menuVisible = false;
+        closeFloatingMenu();
+    }
+}
+
+function toggleFloatingMenu() {
+    floatingMenuItems.classList.toggle('show');
+    menuOverlay.classList.toggle('show');
+    
+    const icon = floatingMenuBtn.querySelector('i');
+    if (floatingMenuItems.classList.contains('show')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+}
+
+function closeFloatingMenu() {
+    floatingMenuItems.classList.remove('show');
+    menuOverlay.classList.remove('show');
+    const icon = floatingMenuBtn.querySelector('i');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+}
+
+function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
+    
+    // Cacher immédiatement quand on scroll vers le bas
+    if (scrollDirection === 'down' && scrollTop > SCROLL_THRESHOLD) {
+        hideFloatingMenu();
+    } 
+    // Montrer immédiatement quand on scroll vers le haut
+    else if (scrollDirection === 'up') {
+        showFloatingMenu();
+    }
+    
+    lastScrollTop = scrollTop;
+    
+    // Réafficher le menu après arrêt du scroll si on est en haut
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        if (scrollTop < 50) {
+            showFloatingMenu();
+        }
+    }, HIDE_DELAY);
+}
+
+// Événements
+floatingMenuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleFloatingMenu();
+});
+
+document.addEventListener('click', function(e) {
+    if (!floatingMenuBtn.contains(e.target) && !floatingMenuItems.contains(e.target)) {
+        closeFloatingMenu();
+    }
+});
+
+document.querySelectorAll('.floating-menu-item').forEach(item => {
+    item.addEventListener('click', function() {
+        setTimeout(closeFloatingMenu, 300);
+    });
+});
+
+document.querySelectorAll('.floating-menu-item[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Écouter le scroll
+window.addEventListener('scroll', handleScroll, { passive: true });
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', function() {
+    showFloatingMenu();
+});
+
+// Réafficher le menu quand on touche l'écran (pour mobile)
+document.addEventListener('touchstart', function() {
+    showFloatingMenu();
 });
 </script>
 </body>
