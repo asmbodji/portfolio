@@ -1058,45 +1058,56 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-    // Navigation mobile
+    // Navigation mobile - Version corrigée
 document.addEventListener('DOMContentLoaded', function() {
     const navToggler = document.querySelector('.nav-toggler');
     const aside = document.querySelector('.aside');
-    
-    console.log('Nav toggler:', navToggler); // Debug
-    console.log('Aside:', aside); // Debug
-    
+    const body = document.body;
+
+    function toggleMenu() {
+        aside.classList.toggle('open');
+        body.classList.toggle('aside-open');
+    }
+
+    function closeMenu() {
+        aside.classList.remove('open');
+        body.classList.remove('aside-open');
+    }
+
     if (navToggler && aside) {
+        // Ouvrir/fermer le menu
         navToggler.addEventListener('click', function(e) {
-            e.stopPropagation(); // Empêche la fermeture immédiate
-            aside.classList.toggle('open');
-            document.body.classList.toggle('aside-open');
-            console.log('Menu clicked, open:', aside.classList.contains('open')); // Debug
+            e.stopPropagation();
+            toggleMenu();
         });
-        
+
         // Fermer le menu en cliquant sur un lien
         const navLinks = document.querySelectorAll('.aside .nav a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 991) {
-                    aside.classList.remove('open');
-                    document.body.classList.remove('aside-open');
+                    closeMenu();
                 }
             });
         });
-        
+
         // Fermer le menu en cliquant à l'extérieur
         document.addEventListener('click', function(e) {
             if (window.innerWidth <= 991 && 
                 aside.classList.contains('open') &&
                 !aside.contains(e.target) && 
+                e.target !== navToggler && 
                 !navToggler.contains(e.target)) {
-                aside.classList.remove('open');
-                document.body.classList.remove('aside-open');
+                closeMenu();
             }
         });
-    } else {
-        console.error('Nav toggler or aside not found!');
+
+        // Fermer le menu en redimensionnant la fenêtre
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 991) {
+                closeMenu();
+            }
+        });
     }
 });
 </script>
