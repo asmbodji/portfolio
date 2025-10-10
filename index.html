@@ -259,6 +259,52 @@ l’informatique, avec un intérêt particulier pour les technologies web.
         color: #333;
         max-width: 500px;
     }
+.social-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.social-circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: #fff;
+  background: #1e1e1e;
+  border: 2px solid #e63946;
+  box-shadow: 0 0 8px rgba(230, 57, 70, 0.5);
+  transition: 0.3s;
+}
+
+.social-circle:hover {
+  background: #e63946;
+  box-shadow: 0 0 20px #e63946, 0 0 30px #e63946;
+  transform: translateY(-4px) scale(1.1);
+}
+
+.social-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  color: #e63946;
+  background: rgba(230, 57, 70, 0.1);
+  border: 1.8px solid #e63946;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-circle:hover {
+  background: #e63946;
+  color: white;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 18px rgba(230, 57, 70, 0.4);
+}
 
     .info-box.show {
         display: block;
@@ -701,14 +747,15 @@ l’informatique, avec un intérêt particulier pour les technologies web.
                             <p id="responseMessage"></p> <!-- Message de confirmation -->
         
                             <!-- Icônes réseaux sociaux -->
-                            <div class="row padd-15" style="justify-content: center; margin-top: 30px;">
-                                <a href="https://www.linkedin.com/in/amadou-sow-mbodj-19b505260/" target="_blank" class="social-icon" style="margin: 0 10px; font-size: 24px; color: #0077b5;">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a href="https://github.com/asmbodji" target="_blank" class="social-icon" style="margin: 0 10px; font-size: 24px; color: #333;">
-                                    <i class="fa fa-github"></i>
-                                </a>
-                            </div>
+                                            <div class="social-circle-container">
+  <a href="https://www.linkedin.com/in/amadou-sow-mbodj-19b505260/" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://github.com/asmbodji" class="social-circle"><i class="fab fa-github"></i></a>
+  <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+  <a href="mailto:asmbodj@hotmail.com" class="social-circle">
+  <i class="fas fa-envelope"></i>
+</a>
+
+</div>
         
                         </div>
                     </div>
@@ -806,6 +853,8 @@ l’informatique, avec un intérêt particulier pour les technologies web.
     const imageSrc = button.getAttribute("data-image");
     const title = button.getAttribute("data-title");
 
+    
+
     popupImage.src = imageSrc;
     popupTitle.innerText = title;
 
@@ -879,6 +928,37 @@ function closeModal(id) {
             });
         });
     });
+    // Récupère tous les liens de navigation
+const navLinks = document.querySelectorAll('.aside .nav a');
+
+// Récupère toutes les sections qui ont un id correspondant aux liens
+const sections = document.querySelectorAll('section[id]');
+
+function activateNavLinkOnScroll() {
+  let scrollY = window.pageYOffset;
+
+  sections.forEach(section => {
+    const sectionHeight = section.offsetHeight;
+    const sectionTop = section.offsetTop - 100; // Ajuste 100 si tu veux plus tôt ou plus tard
+    const sectionId = section.getAttribute('id');
+
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}
+
+// Exécute au scroll
+window.addEventListener('scroll', activateNavLinkOnScroll);
+
+// Exécute au chargement pour l'état initial
+window.addEventListener('load', activateNavLinkOnScroll);
+
 </script>
 
 
