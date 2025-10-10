@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portfolio</title>
     <link rel="icon" type="icon/jpg" href="logoasm.png">
     <link rel="stylesheet" href="style.css">
@@ -115,12 +116,12 @@ l’informatique, avec un intérêt particulier pour les technologies web.
                                         <p>Ville: <span>Belfort</span></p>
                                     </div>
                                 </div>
-                                <div class="row">
-    <div class="buttons padd-15" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                             <div class="row">
+    <div class="buttons padd-15" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
         <a href="CVAmadouSow.pdf" class="btn">Télécharger CV</a>
-        <a href="#contact" class="btn engagez-moi">engagez-moi</a>
-        <button class="btn" onclick="openModal('modal-projets')">Voir mes projets en détail</button>
-        <button class="btn" onclick="openModal('modal-competences')">Mes compétences clés & objectifs pro</button>
+        <a href="#contact" class="btn engagez-moi">Engagez-moi</a>
+        <button class="btn" onclick="openModal('modal-projets')">Mes projets</button>
+        <button class="btn" onclick="openModal('modal-competences')">Compétences</button>
     </div>
 </div>
 
@@ -1014,8 +1015,90 @@ window.addEventListener('load', activateNavLinkOnScroll);
       calendarPopup.style.display = "none";
     }
   });
+
 </script>
 
-
+<script>
+    // Navigation mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggler = document.querySelector('.nav-toggler');
+    const aside = document.querySelector('.aside');
+    
+    if (navToggler && aside) {
+        navToggler.addEventListener('click', function() {
+            aside.classList.toggle('open');
+            document.body.classList.toggle('aside-open');
+        });
+        
+        // Fermer le menu en cliquant sur un lien
+        const navLinks = document.querySelectorAll('.aside .nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 991) {
+                    aside.classList.remove('open');
+                    document.body.classList.remove('aside-open');
+                }
+            });
+        });
+        
+        // Fermer le menu en cliquant à l'extérieur
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 991 && 
+                !aside.contains(e.target) && 
+                !navToggler.contains(e.target) && 
+                aside.classList.contains('open')) {
+                aside.classList.remove('open');
+                document.body.classList.remove('aside-open');
+            }
+        });
+    }
+    
+    // Empêcher le zoom sur les inputs en iOS
+    document.addEventListener('touchstart', function() {}, {passive: true});
+});
+</script>
+<script>
+    // Navigation mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggler = document.querySelector('.nav-toggler');
+    const aside = document.querySelector('.aside');
+    
+    console.log('Nav toggler:', navToggler); // Debug
+    console.log('Aside:', aside); // Debug
+    
+    if (navToggler && aside) {
+        navToggler.addEventListener('click', function(e) {
+            e.stopPropagation(); // Empêche la fermeture immédiate
+            aside.classList.toggle('open');
+            document.body.classList.toggle('aside-open');
+            console.log('Menu clicked, open:', aside.classList.contains('open')); // Debug
+        });
+        
+        // Fermer le menu en cliquant sur un lien
+        const navLinks = document.querySelectorAll('.aside .nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 991) {
+                    aside.classList.remove('open');
+                    document.body.classList.remove('aside-open');
+                }
+            });
+        });
+        
+        // Fermer le menu en cliquant à l'extérieur
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 991 && 
+                aside.classList.contains('open') &&
+                !aside.contains(e.target) && 
+                !navToggler.contains(e.target)) {
+                aside.classList.remove('open');
+                document.body.classList.remove('aside-open');
+            }
+        });
+    } else {
+        console.error('Nav toggler or aside not found!');
+    }
+});
+</script>
 </body>
 </html>
