@@ -2149,64 +2149,81 @@ body.aside-open::before {
     }
 }
 
-/* Menu flottant mobile avec animation de disparition */
+/* Version élégante avec fond flou */
 .floating-menu {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 999;
     display: none;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .floating-menu.hidden {
-    transform: translateY(100px);
+    transform: translateX(-50%) translateY(-100px);
     opacity: 0;
     pointer-events: none;
 }
 
 .floating-menu.visible {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
     pointer-events: all;
 }
 
 .floating-menu-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: var(--skin-color);
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, var(--skin-color), #ff6b6b);
     color: white;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-size: 1.4rem;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
     transition: all 0.3s ease;
     z-index: 1000;
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-menu-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    border-radius: 50%;
 }
 
 .floating-menu-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.15) rotate(90deg);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
 }
 
 .floating-menu-items {
     position: absolute;
-    bottom: 70px;
-    right: 0;
-    background: white;
-    border-radius: 15px;
-    padding: 10px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     display: none;
     flex-direction: column;
-    gap: 8px;
-    min-width: 150px;
-    transform-origin: bottom right;
-    animation: slideUp 0.3s ease;
+    gap: 10px;
+    min-width: 200px;
+    transform-origin: top center;
+    animation: slideDownFancy 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .floating-menu-items.show {
@@ -2216,143 +2233,75 @@ body.aside-open::before {
 .floating-menu-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 15px;
-    border-radius: 10px;
+    gap: 15px;
+    padding: 14px 18px;
+    border-radius: 12px;
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
+    color: #2d3748;
+    font-weight: 600;
     transition: all 0.3s ease;
     border: none;
     background: none;
     width: 100%;
     text-align: left;
     cursor: pointer;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.floating-menu-item:hover::before {
+    left: 100%;
 }
 
 .floating-menu-item:hover {
     background: var(--skin-color);
     color: white;
-    transform: translateX(-5px);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .floating-menu-item i {
     width: 20px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
 }
 
-/* Animation */
-@keyframes slideUp {
+.floating-menu-item:hover i {
+    transform: scale(1.2);
+}
+
+@keyframes slideDownFancy {
     from {
         opacity: 0;
-        transform: translateY(20px) scale(0.9);
+        transform: translateX(-50%) translateY(-30px) scale(0.8);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateX(-50%) translateY(0) scale(1);
     }
 }
 
-/* Afficher uniquement sur mobile */
 @media (max-width: 991px) {
     .floating-menu {
         display: block;
     }
-}
-
-/* Overlay pour fermer le menu */
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 998;
-    display: none;
-    transition: opacity 0.3s ease;
-}
-
-.menu-overlay.show {
-    display: block;
-    opacity: 1;
-}
-
-/* Version simple */
-.floating-menu-simple {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 999;
-    display: none;
-}
-
-.floating-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--skin-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 1001;
-}
-
-.floating-actions {
-    position: absolute;
-    bottom: 65px;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-
-.floating-menu-simple.active .floating-actions {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.floating-menu-simple.active .floating-btn {
-    transform: rotate(45deg);
-    background: #ff4757;
-}
-
-.floating-action {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: white;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.floating-action:hover {
-    background: var(--skin-color);
-    color: white;
-    transform: scale(1.1);
-}
-
-@media (max-width: 991px) {
-    .floating-menu-simple {
-        display: block;
+    
+    .main-content {
+        padding-top: 90px;
     }
 }
+
 
