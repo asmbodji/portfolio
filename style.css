@@ -2150,7 +2150,7 @@ body.aside-open::before {
 }
 
 /* Version élégante avec fond flou */
-.floating-menu {
+/*.floating-menu {
     position: fixed;
     top: 20px;
     left: 50%;
@@ -2158,6 +2158,120 @@ body.aside-open::before {
     z-index: 999;
     display: none;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}*/
+
+/* Correction du menu flottant et photo mobile */
+.floating-menu {
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Augmenter le z-index */
+    display: none;
+    transition: all 0.3s ease;
+}
+
+/* Supprimer la marge blanche en haut */
+@media (max-width: 991px) {
+    body {
+        padding-top: 0 !important;
+    }
+    
+    .main-content {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+    .home {
+        padding-top: 0 !important;
+    }
+}
+
+/* Photo mobile centrée sous le menu */
+.mobile-profile-header {
+    display: none;
+    text-align: center;
+    width: 100%;
+    padding: 20px 15px;
+    background: transparent; /* Supprimer le fond */
+    border-bottom: none; /* Supprimer la bordure */
+    margin: 0;
+}
+
+@media (max-width: 991px) {
+    .mobile-profile-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 80px; /* Espace sous le menu flottant */
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+    
+    .mobile-profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--skin-color);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        margin: 0 auto 15px;
+    }
+    
+    .mobile-profile-info {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .mobile-profile-info h3 {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        color: var(--text-black-900);
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .mobile-profile-info p {
+        font-size: 1rem;
+        color: var(--text-black-700);
+        margin: 0;
+        text-align: center;
+    }
+    
+    /* Forcer le centrage de la section home */
+    .home .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .home .row {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .home-info {
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* Cacher la photo originale */
+    .home .home-img {
+        display: none;
+    }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 480px) {
+    .mobile-profile-header {
+        margin-top: 70px;
+    }
+    
+    .mobile-profile-img {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 .floating-menu.hidden {
@@ -2303,5 +2417,7 @@ body.aside-open::before {
         padding-top: 90px;
     }
 }
+
+
 
 
