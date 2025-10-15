@@ -568,8 +568,8 @@ l’informatique, avec un intérêt particulier pour les technologies web.
             <button class="filter-btn active" data-filter="all">Tous</button>
             <button class="filter-btn" data-filter="web">Web</button>
             <button class="filter-btn" data-filter="app">App</button>
-            <button class="filter-btn" data-filter="ia">Machine Vision</button>
-            <button class="filter-btn" data-filter="jeu">Jeu</button>
+            <button class="filter-btn" data-filter="ma">Machine Vision</button>
+            <button class="filter-btn" data-filter="ia">IA</button>
         </div>
 
 
@@ -595,10 +595,10 @@ l’informatique, avec un intérêt particulier pour les technologies web.
             </div>
 
             <!-- Projet 2 - VR -->
-            <div class="portfolio-item ia">
+            <div class="portfolio-item ma">
                 <div class="portfolio-item-inner shadow-dark">
                     <div class="portfolio-img">
-                        <img src="./imge.png" alt="Projet IA">
+                        <img src="./imge.png" alt="Projet mv">
                     </div>
                     <h3>Mon projet tuteuré en licence pro VRI</h3>
                     <div class="portfolio-btn">
@@ -615,22 +615,25 @@ l’informatique, avec un intérêt particulier pour les technologies web.
 
 
             <!-- Projet 3 - Jeu -->
-            <div class="portfolio-item jeu">
-                <div class="portfolio-item-inner shadow-dark">
-                    <div class="portfolio-img">
-                        <img src="./rhiz.png" alt="Projet Jeu">
-                    </div>
-                    <h3>Mon projet Master : GreenQuest, jeux interactifs (en cours)</h3>
-                    <div class="portfolio-btn">
-                        <button class="btn-see-more"
-                                onclick="openPopup(this)"
-                                data-image="./greenquest.gif"
-                                data-title="Description : GreenQuest, jeux interactifs sur la protection de l'environnement (en cours)">
-                            Voir plus
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <!-- Projet 3 - Jeu -->
+<div class="portfolio-item ia">
+    <div class="portfolio-item-inner shadow-dark">
+        <div class="portfolio-img">
+            <img src="./room.png" alt="Projet IA">
+        </div>
+        <h3>Projet personnel : Roomify, application de décoration assistée par IA avec AR</h3>
+        <div class="portfolio-btn">
+            <button class="btn-see-more"
+                    onclick="openPopup(this)"
+                    data-image="./greenquest.gif"
+                    data-title="Description : Roomify – application de décoration assistée par IA avec intégration de réalité augmentée. (en cours)"
+                    data-type="video"
+                    data-video="./room-video.mp4">
+                Voir plus
+            </button>
+        </div>
+    </div>
+</div>
 
             <!-- Projet 4 - App -->
             <div class="portfolio-item app">
@@ -893,13 +896,43 @@ l’informatique, avec un intérêt particulier pour les technologies web.
     const popupTitle = document.getElementById("popup-title");
     const popupDescription = document.getElementById("popup-description");
 
-    function openPopup(button) {
+  function openPopup(button) {
     const imageSrc = button.getAttribute("data-image");
     const title = button.getAttribute("data-title");
+    const type = button.getAttribute("data-type"); // Récupère le type (image ou video)
+    const videoSrc = button.getAttribute("data-video"); // Récupère le chemin de la vidéo
 
+    // Vider le contenu précédent
+    popupImage.style.display = 'none';
     
+    // Supprimer une vidéo existante
+    const existingVideo = document.getElementById('popup-video');
+    if (existingVideo) {
+        existingVideo.remove();
+    }
 
-    popupImage.src = imageSrc;
+    if (type === 'video' && videoSrc) {
+        // Créer et afficher une vidéo
+        const video = document.createElement('video');
+        video.id = 'popup-video';
+        video.controls = true;
+        video.autoplay = true;
+        video.style.width = '100%';
+        video.style.maxHeight = '400px';
+        video.style.borderRadius = '8px';
+        
+        const source = document.createElement('source');
+        source.src = videoSrc;
+        source.type = 'video/mp4';
+        
+        video.appendChild(source);
+        popupImage.parentNode.insertBefore(video, popupImage.nextSibling);
+    } else {
+        // Afficher une image (comportement normal)
+        popupImage.src = imageSrc;
+        popupImage.style.display = 'block';
+    }
+
     popupTitle.innerText = title;
 
     const descriptions = {
@@ -908,9 +941,9 @@ l’informatique, avec un intérêt particulier pour les technologies web.
         "Mon projet Master: Application mobile de prise de rendez-vous en ligne":
             "App Flutter permettant aux utilisateurs de réserver un créneau horaire dans des hôtels ou services.",
         "Description : Développement de système de métrologie basés sur Halcon":
-            "Conception d’un système de métrologie pour le contrôle dimensionnel de pièces industrielles à l’aide du logiciel Halcon. Mise en place de scripts Halcon pour l’analyse d’images et l’identification des défauts.",
-        "Description : GreenQuest, jeux interactifs sur la protection de l'environnement (en cours)":
-            "Jeu éducatif éco-responsable développé sous Unity avec des graphismes de dessin animé. Le joueur utilise des figurines pour jouer sur un plateau de jeu en résolvant des énigmes afin d'apprendre des concepts écologiques."
+            "Conception d'un système de métrologie pour le contrôle dimensionnel de pièces industrielles à l'aide du logiciel Halcon. Mise en place de scripts Halcon pour l'analyse d'images et l'identification des défauts.",
+        "Description : Roomify – application de décoration assistée par IA avec intégration de réalité augmentée. (en cours)":
+            "Roomify est une application de décoration assistée par intelligence artificielle. L'utilisateur y téléverse une photo de son espace, et l'IA lui propose des suggestions de décoration personnalisées. L'intégration de la réalité augmentée offrira une expérience immersive en permettant de visualiser les aménagements directement dans l'environnement réel."
     };
 
     popupDescription.innerText = descriptions[title] || "Description à venir.";
@@ -919,9 +952,18 @@ l’informatique, avec un intérêt particulier pour les technologies web.
 }
 
 
-    function closePopup() {
-        popup.style.display = "none";
+   function closePopup() {
+    // Supprimer la vidéo si elle existe
+    const existingVideo = document.getElementById('popup-video');
+    if (existingVideo) {
+        existingVideo.remove();
     }
+    
+    // Réafficher l'image (pour les autres projets)
+    popupImage.style.display = 'block';
+    
+    popup.style.display = "none";
+}
 </script>
 <script>
     // Pour la section Diplôme
