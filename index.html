@@ -971,6 +971,12 @@ l’informatique, avec un intérêt particulier pour les technologies web.
     
     popup.style.display = "none";
 }
+// Fermer le popup en cliquant à l'extérieur
+document.addEventListener('click', function(event) {
+    if (popup.style.display === "flex" && event.target === popup) {
+        closePopup();
+    }
+});
 </script>
 <script>
     // Pour la section Diplôme
