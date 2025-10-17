@@ -299,7 +299,116 @@ l’informatique, avec un intérêt particulier pour les technologies web.
   box-shadow: 0 0 20px #e63946, 0 0 30px #e63946;
   transform: translateY(-4px) scale(1.1);
 }
+/* Section Projet en Cours */
+.current-project {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
 
+.project-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.project-video {
+    flex: 1;
+    min-width: 300px;
+}
+
+.project-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.project-status {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.status-badge {
+    background: #e63946;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.date-start {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.tech-tag {
+    background: rgba(230, 57, 70, 0.1);
+    color: #e63946;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    border: 1px solid rgba(230, 57, 70, 0.3);
+}
+
+.progress-section {
+    margin: 20px 0;
+}
+
+.progress-item {
+    margin: 15px 0;
+}
+
+.progress-item span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.progress-bar {
+    background: #e0e0e0;
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+    height: 100%;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 0.7em;
+    line-height: 8px;
+}
+
+.project-cta {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #e63946;
+    margin-top: 25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-content {
+        flex-direction: column;
+    }
+    
+    .project-video, .project-info {
+        flex: none;
+        width: 100%;
+    }
+}
 .social-circle {
   width: 48px;
   height: 48px;
@@ -343,7 +452,31 @@ l’informatique, avec un intérêt particulier pour les technologies web.
   line-height: 1.5;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
+/* À ajouter dans votre CSS */
+.current-project .container {
+    overflow-x: hidden;
+    max-width: 100%;
+}
 
+.current-project .row {
+    margin: 0;
+    padding: 0 15px;
+}
+
+.project-content {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Assurer que le texte reste dans les limites */
+.project-info h3,
+.project-info p,
+.project-info ul,
+.project-info .tech-stack {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
 </style>
 
 <!-- JS à ajouter -->
@@ -697,7 +830,89 @@ l’informatique, avec un intérêt particulier pour les technologies web.
         </section>
         
            </section>
-
+<!-- Section Projet en Cours -->
+<section class="current-project section" id="current-project">
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>Projet en Cours</h2>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="project-content">
+                <!-- Vidéo de présentation -->
+                <div class="project-video padd-15">
+                    <div class="video-container">
+                        <video controls poster="./room.png" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <source src="./roomify.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture vidéo.
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- Description du projet -->
+                <div class="project-info padd-15">
+                    <h3>🚀 Roomify - Application de Décoration Assistée par IA</h3>
+                    <div class="project-status">
+                        <span class="status-badge">En Développement</span>
+                        <span class="date-start">Débuté en septembre 2025</span>
+                    </div>
+                    
+                    <div class="project-description">
+                        <p><strong>Roomify révolutionne la décoration d'intérieur en combinant intelligence artificielle et réalité augmentée.</strong></p>
+                        
+                        <h4>🎯 Fonctionnalités principales :</h4>
+                        <ul>
+                            <li>📸 Analyse de photos d'espaces avec IA</li>
+                            <li>🎨 Suggestions de décoration personnalisées</li>
+                            <li>👁️ Visualisation en réalité augmentée</li>
+                            <li>🛒 Intégration e-commerce</li>
+                            <li>📱 Application mobile cross-platform</li>
+                        </ul>
+                        
+                        <h4>🛠️ Technologies utilisées :</h4>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Html & Css</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">ARCore/ARKit</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Python & Mysql</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        
+                        <h4>📈 Progression :</h4>
+                        <div class="progress-section">
+                            <div class="progress-item">
+                                <span>IA & Analyse d'images</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 40%">40%</div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <span>Interface utilisateur</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%">65%</div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <span>Réalité augmentée</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 10%">10%</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-cta">
+                            <p><strong>Intéressé par ce projet ?</strong> N'hésitez pas à me contacter pour en discuter !</p>
+                            <a href="#contact" class="btn engagez-moi">Discutons-en !</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
            <section class="contact section" id="contact">
             <div class="container">
                 <div class="row">
