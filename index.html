@@ -126,7 +126,7 @@ l’informatique, avec un intérêt particulier pour les technologies web.
                                 </div>
                              <div class="row">
     <div class="buttons padd-15" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-        <a href="CVAmadouSow.pdf" class="btn">Télécharger CV</a>
+        <a href="CURRICULUM.pdf" class="btn">Télécharger CV</a>
         <a href="#contact" class="btn engagez-moi">Engagez-moi</a>
         <button class="btn" onclick="openModal('modal-projets')">Mes projets</button>
         <button class="btn" onclick="openModal('modal-competences')">Compétences</button>
@@ -389,7 +389,78 @@ l’informatique, avec un intérêt particulier pour les technologies web.
     font-size: 0.7em;
     line-height: 8px;
 }
+.about-content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
 
+.centres-interet-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.interests-grid {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* Assurer que les cartes ne débordent pas */
+.interest-card {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Correction spécifique pour les éléments flex */
+.row {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+/* S'assurer que tous les éléments respectent les limites */
+.padd-15 {
+    box-sizing: border-box;
+}
+
+/* Media queries pour renforcer le responsive */
+@media (max-width: 768px) {
+    .interests-grid {
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    .interest-card {
+        width: calc(50% - 20px);
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .interests-grid {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .interest-card {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .about .container {
+        padding: 0 15px;
+    }
+}
+
+/* Reset des largeurs problématiques */
+.interests-grid > * {
+    max-width: 100%;
+}
 .project-cta {
     background: white;
     padding: 20px;
@@ -590,7 +661,470 @@ l’informatique, avec un intérêt particulier pour les technologies web.
 </div>
 
         </section>
+            <!-- Section Centres d'Intérêt -->
+<section class="interests section" id="interests">
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>Mes Centres d'Intérêt</h2>
+                <p>Découvrez ce qui m'inspire au quotidien</p>
+            </div>
+        </div>
+        
+        <div class="row interests-container">
+            <!-- Carte Musique -->
+            <div class="interest-card padd-15">
+                <div class="interest-inner">
+                    <div class="interest-front">
+                        <div class="interest-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Musique</h3>
+                        <p>Cliquez pour découvrir</p>
+                    </div>
+                    <div class="interest-back">
+                        <h3>🎵 Musique</h3>
+                        <p>Passionné par la création musicale et l'exploration de différents genres. Je m'intéresse à la production assistée par ordinateur.</p>
+                        <div class="interest-tags">
+                            <span class="tag">Guitare</span>
+                            <span class="tag">Production</span>
+                            <span class="tag">Concerts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
+            <!-- Carte Arts Martiaux -->
+            <div class="interest-card padd-15">
+                <div class="interest-inner">
+                    <div class="interest-front">
+                        <div class="interest-icon">
+                            <i class="fas fa-fist-raised"></i>
+                        </div>
+                        <h3>Arts Martiaux</h3>
+                        <p>Cliquez pour découvrir</p>
+                    </div>
+                    <div class="interest-back">
+                        <h3>🥋 Arts Martiaux</h3>
+                        <p>Pratique régulière de Karaté pour développer discipline, concentration et maîtrise de soi.</p>
+                        <div class="interest-tags">
+                            <span class="tag">Discipline</span>
+                            <span class="tag">Concentration</span>
+                            <span class="tag">Équilibre</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carte Football -->
+            <div class="interest-card padd-15">
+                <div class="interest-inner">
+                    <div class="interest-front">
+                        <div class="interest-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3>Football</h3>
+                        <p>Cliquez pour découvrir</p>
+                    </div>
+                    <div class="interest-back">
+                        <h3>⚽ Football</h3>
+                        <p>Passionné par le sport d'équipe, le football m'a enseigné l'importance de la collaboration, de la stratégie et de la persévérance pour atteindre un objectif commun.</p>
+                        <div class="interest-tags">
+                            <span class="tag">Équipe</span>
+                            <span class="tag">Stratégie</span>
+                            <span class="tag">Compétition</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carte Jeux Vidéo -->
+            <div class="interest-card padd-15">
+                <div class="interest-inner">
+                    <div class="interest-front">
+                        <div class="interest-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Jeux Vidéo</h3>
+                        <p>Cliquez pour découvrir</p>
+                    </div>
+                    <div class="interest-back">
+                        <h3>🎮 Jeux Vidéo</h3>
+                        <p>Intérêt pour l'univers du gaming, particulièrement les jeux qui combinent narration immersive et défis stratégiques. Une source d'inspiration pour mes projets de développement.</p>
+                        <div class="interest-tags">
+                            <span class="tag">Stratégie</span>
+                            <span class="tag">Narratif</span>
+                            <span class="tag">Innovation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section citation inspirante -->
+        <div class="row">
+            <div class="inspiration-quote padd-15">
+                <blockquote>
+                    "Nos passions sont les phares qui éclairent notre parcours professionnel"
+                </blockquote>
+                <p class="quote-author">- Amadou Sow Mbodji</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Section Centres d'Intérêt - Version discrète */
+.interests {
+    padding: 60px 0;
+    position: relative;
+}
+
+.interests .section-title h2 {
+    color: #333;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.interests .section-title p {
+    color: #666;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Conteneur des cartes */
+.interests-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cartes d'intérêt */
+.interest-card {
+    width: 240px;
+    height: 300px;
+    perspective: 1000px;
+    margin-bottom: 15px;
+}
+
+.interest-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.interest-card:hover .interest-inner {
+    transform: rotateY(180deg);
+}
+
+.interest-front, .interest-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.interest-front {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.interest-back {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    color: #333;
+    transform: rotateY(180deg);
+    justify-content: space-between;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.interest-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    color: #e63946;
+}
+
+.interest-card:hover .interest-icon {
+    transform: scale(1.05);
+}
+
+.interest-front h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.interest-front p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.interest-back h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.interest-back p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+}
+
+.interest-tags .tag {
+    background: rgba(230, 57, 70, 0.1);
+    color: #e63946;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+/* Citation inspirante */
+.inspiration-quote {
+    margin-top: 50px;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #e63946;
+}
+
+.inspiration-quote blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #444;
+    line-height: 1.5;
+}
+
+.quote-author {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Animation d'entrée pour les cartes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.interest-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.interest-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.interest-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.interest-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.interest-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Responsive amélioré */
+@media (max-width: 1200px) {
+    .interests-container {
+        gap: 20px;
+    }
+    
+    .interest-card {
+        width: 220px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 992px) {
+    .interest-card {
+        width: 200px;
+        height: 260px;
+    }
+    
+    .interest-icon {
+        font-size: 2.7rem;
+    }
+    
+    .interest-front h3, .interest-back h3 {
+        font-size: 1.3rem;
+    }
+    
+    .interest-back p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .interests {
+        padding: 40px 0;
+    }
+    
+    .interests-container {
+        gap: 15px;
+    }
+    
+    .interest-card {
+        width: 180px;
+        height: 240px;
+    }
+    
+    .interest-front, .interest-back {
+        padding: 15px;
+    }
+    
+    .interest-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .interest-front h3, .interest-back h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .interest-front p {
+        font-size: 0.8rem;
+    }
+    
+    .interest-back p {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .inspiration-quote blockquote {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .interests-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .interest-card {
+        width: 220px;
+        height: 260px;
+    }
+    
+    .interests .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .interests .section-title p {
+        font-size: 1rem;
+    }
+    
+    .inspiration-quote {
+        margin-top: 30px;
+        padding: 15px;
+    }
+    
+    .inspiration-quote blockquote {
+        font-size: 1rem;
+    }
+}
+
+/* Pour les très petits écrans */
+@media (max-width: 380px) {
+    .interest-card {
+        width: 200px;
+        height: 240px;
+    }
+    
+    .interest-front, .interest-back {
+        padding: 12px;
+    }
+    
+    .interest-icon {
+        font-size: 2.2rem;
+    }
+}
+</style>
+
+<script>
+// Animation au défilement
+document.addEventListener('DOMContentLoaded', function() {
+    // Observer pour l'animation au scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observer chaque carte d'intérêt
+    document.querySelectorAll('.interest-card').forEach(card => {
+        observer.observe(card);
+    });
+    
+    // Animation au clic pour mobile (alternative au hover)
+    document.querySelectorAll('.interest-card').forEach(card => {
+        card.addEventListener('click', function() {
+            // Sur mobile, on peut ajouter une classe active pour l'animation
+            if (window.innerWidth <= 768) {
+                this.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
         <section class="service section" id="service">
             <div class="container">
                 <div class="row">
@@ -1538,5 +2072,6 @@ document.addEventListener('touchstart', function() {
     showFloatingMenu();
 });
 </script>
+
 </body>
 </html>
