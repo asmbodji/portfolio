@@ -24,7 +24,26 @@
 
 </head>
 <body>
-    
+    <!-- Bannière Alternance -->
+<div id="alternance-banner" class="alternance-banner">
+    <div class="banner-content">
+        <span class="banner-close" onclick="closeBanner()">×</span>
+        <div class="banner-icon">
+            <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="banner-text">
+            <h3>🔍 Je recherche une alternance !</h3>
+            <p><strong>Assistant Chef de Projet IT</strong> - Rythme : 3 semaines entreprise / 1 semaine école</p>
+            <a href="#contact" class="btn-banner">Me contacter</a>
+        </div>
+    </div>
+</div>
+
+<!-- Bouton flottant pour réouvrir la bannière -->
+<div id="banner-reopen" class="banner-reopen-btn" onclick="showBanner()">
+    <i class="fas fa-briefcase"></i>
+    <span>Alternance</span>
+</div>
        <div class="main-container">
      <div class="aside">
     <div class="logo">
@@ -92,12 +111,11 @@
 </p>
 
 <div class="highlight-box">
-  Je suis titulaire d’un Master 1 en Technologies de l’Information – Produits et Services
-Multimédias, que j’ai validé avec succès. J’avais initialement prévu de poursuivre en deuxième
-année (M2) dans la filière TDM, mais j’ai été orienté vers une autre spécialisation (CCAM) qui ne
-correspondait ni à mon parcours académique ni à mes objectifs professionnels, j’ai donc choisi
-de ne pas continuer. Je suis désormais à la recherche d’un poste en CDI dans le domaine de
-l’informatique, avec un intérêt particulier pour les technologies web.
+  Prochainement étudiant en Master Expert en Système d’information à l’ISITECH, je souhaite intégrer une
+alternance en tant qu’assistant chef de projet IT. Passionné par la data, le développement et l’intelligence
+artificielle, je dispose d’une solide base en programmation (Python, Power BI, automatisation) et d’une
+expérience en traitement d’images et en analyse de données. Mon objectif est de contribuer à la réussite et à
+l’innovation des projets IT, tout en renforçant mes compétences sur la Power Platform et les intégrations IA.
 </div>
 
                             </div>
@@ -126,7 +144,7 @@ l’informatique, avec un intérêt particulier pour les technologies web.
                                 </div>
                              <div class="row">
     <div class="buttons padd-15" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-        <a href="CURRICULUM.pdf" class="btn">Télécharger CV</a>
+        <a href="CVAL.pdf" class="btn">Télécharger CV</a>
         <a href="#contact" class="btn engagez-moi">Engagez-moi</a>
         <button class="btn" onclick="openModal('modal-projets')">Mes projets</button>
         <button class="btn" onclick="openModal('modal-competences')">Compétences</button>
@@ -198,7 +216,12 @@ l’informatique, avec un intérêt particulier pour les technologies web.
     </h3>
     <div class="formation-content animated-collapse" id="formation-box">
         <div class="formation-card">
-
+         <div class="timeline-item">
+                <div class="circle-dot"></div>
+                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2025 - 2026</h3>
+                <h4 class="timeline-title">Master Expert en Système d'Information</h4>
+                <p class="timeline-text">À l'ISITECH 🇫🇷</p>
+            </div>
             <!-- Master 1 -->
             <div class="timeline-item">
                 <div class="circle-dot"></div>
@@ -394,7 +417,236 @@ l’informatique, avec un intérêt particulier pour les technologies web.
     max-width: 100%;
     box-sizing: border-box;
 }
+/* Bannière Alternance Centrée */
+.alternance-banner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(230, 57, 70, 0.5);
+    z-index: 10000;
+    max-width: 500px;
+    width: 90%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
+.alternance-banner.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    text-align: left;
+}
+
+.banner-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #e63946;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.banner-close:hover {
+    background: white;
+    transform: scale(1.1) rotate(90deg);
+}
+
+.banner-icon {
+    font-size: 2.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    animation: bounceIcon 2s infinite;
+}
+
+.banner-text {
+    flex: 1;
+}
+
+.banner-text h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.banner-text p {
+    margin: 0 0 20px 0;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+.btn-banner {
+    display: inline-block;
+    background: white;
+    color: #e63946;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-banner:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton de réouverture */
+.banner-reopen-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    animation: pulseReopen 2s infinite;
+}
+
+.banner-reopen-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6);
+}
+
+.banner-reopen-btn i {
+    font-size: 1.2rem;
+}
+
+.banner-reopen-btn span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Overlay de fond */
+.banner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.banner-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animations */
+@keyframes bounceIcon {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes pulseReopen {
+    0% {
+        box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 25px rgba(230, 57, 70, 0.7);
+    }
+    100% {
+        box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .alternance-banner {
+        padding: 20px;
+        max-width: 90%;
+    }
+    
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .banner-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+    
+    .banner-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    .banner-text p {
+        font-size: 0.95rem;
+    }
+    
+    .banner-reopen-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 18px;
+    }
+    
+    .banner-reopen-btn span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-reopen-btn span {
+        display: none;
+    }
+    
+    .banner-reopen-btn {
+        padding: 15px;
+    }
+}
 .centres-interet-container {
     width: 100%;
     max-width: 100%;
@@ -2072,6 +2324,64 @@ document.addEventListener('touchstart', function() {
     showFloatingMenu();
 });
 </script>
-
+<script>
+    // Gestion de la bannière alternance centrée
+document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('alternance-banner');
+    const reopenBtn = document.getElementById('banner-reopen');
+    
+    // Créer l'overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'banner-overlay';
+    document.body.appendChild(overlay);
+    
+    // Fonction pour afficher la bannière
+    window.showBanner = function() {
+        if (banner) {
+            banner.classList.add('show');
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Empêche le scroll
+        }
+    };
+    
+    // Fonction pour fermer la bannière
+    window.closeBanner = function() {
+        if (banner) {
+            banner.classList.remove('show');
+            overlay.classList.remove('show');
+            document.body.style.overflow = ''; // Réactive le scroll
+            
+            // Montrer le bouton de réouverture après fermeture
+            setTimeout(() => {
+                if (reopenBtn) {
+                    reopenBtn.style.display = 'flex';
+                }
+            }, 300);
+        }
+    };
+    
+    // Fermer en cliquant sur l'overlay
+    overlay.addEventListener('click', closeBanner);
+    
+    // Fermer avec la touche Échap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && banner.classList.contains('show')) {
+            closeBanner();
+        }
+    });
+    
+    // Afficher automatiquement après 3 secondes
+    setTimeout(() => {
+        showBanner();
+        
+        // Fermer automatiquement après 10 secondes
+        setTimeout(() => {
+            if (banner.classList.contains('show')) {
+                closeBanner();
+            }
+        }, 10000);
+    }, 3000);
+});
+</script>
 </body>
 </html>
