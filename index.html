@@ -1218,7 +1218,97 @@ l’innovation des projets IT, tout en renforçant mes compétences sur la Power
 .interest-card:nth-child(3) {
     animation-delay: 0.3s;
 }
+/* QR Code Section - À la place de la vidéo */
+.qr-section-main {
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(230, 57, 70, 0.15);
+    width: 100%;
+}
 
+.qr-title-main {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.qr-instruction-main {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qr-container-main {
+    display: inline-block;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 3px solid #e63946;
+}
+
+.qr-code-main {
+    width: 220px;
+    height: 220px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #e63946;
+}
+
+.qr-code-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.qr-link-text {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 15px;
+}
+
+.qr-link-main {
+    color: #e63946;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.qr-link-main:hover {
+    color: #c1121f;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .qr-section-main {
+        padding: 30px 20px;
+    }
+    
+    .qr-title-main {
+        font-size: 1.3rem;
+    }
+    
+    .qr-code-main {
+        width: 180px;
+        height: 180px;
+        font-size: 1rem;
+    }
+}
 .interest-card:nth-child(4) {
     animation-delay: 0.4s;
 }
@@ -1628,14 +1718,25 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="row">
             <div class="project-content">
                 <!-- Vidéo de présentation -->
-                <div class="project-video padd-15">
-                    <div class="video-container">
-                        <video controls poster="./room.png" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                            <source src="./roomify.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la lecture vidéo.
-                        </video>
-                    </div>
-                </div>
+               <!-- QR Code à la place de la vidéo -->
+<div class="project-video padd-15">
+    <div class="qr-section-main">
+        <h3 class="qr-title-main">📱 Scan pour voir la démo Roomify</h3>
+        <p class="qr-instruction-main">
+            Scannez ce QR code avec votre smartphone pour découvrir la démonstration complète du projet
+        </p>
+        
+        <div class="qr-container-main">
+    <div class="qr-code-main">
+        <img src="./qrcode-roomify.png" alt="QR Code Roomify - Scan pour voir la démo complète">
+    </div>
+</div>
+        
+        <p class="qr-link-text">
+            Ou <a href="https://youtu.be/VqGsNbsqjm8" class="qr-link-main">cliquez ici pour voir la vidéo</a>
+        </p>
+    </div>
+</div>
                 
                 <!-- Description du projet -->
                 <div class="project-info padd-15">
