@@ -2150,7 +2150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Données des écoles (adaptées à votre portfolio)
+    // Données des écoles avec DIPLÔMES MULTIPLES pour le centre de formation
     const schools = [
         {
             id: 1,
@@ -2159,8 +2159,13 @@ document.addEventListener('DOMContentLoaded', function() {
             type: "universite",
             location: [43.8375, 4.3601],
             period: "2023 - 2024",
-            diplome: "Licence Pro Vision pour la robotique industrielle",
-            mention: "Mention Bien",
+            diplomes: [
+                {
+                    nom: "Licence Pro Vision pour la robotique industrielle",
+                    mention: "Mention Bien",
+                    annee: "2024"
+                }
+            ],
             description: "Formation spécialisée en vision industrielle et robotique avec HALCON",
             ville: "Nîmes",
             details: "Acquisition de compétences en traitement d'images, programmation HALCON et intégration de systèmes de vision industrielle."
@@ -2172,8 +2177,13 @@ document.addEventListener('DOMContentLoaded', function() {
             type: "universite",
             location: [47.510356, 6.798466],
             period: "2024 - 2025",
-            diplome: "Master 1 Technologie de l'information",
-            mention: "M1 validé",
+            diplomes: [
+                {
+                    nom: "Master 1 Technologie de l'information Produits & Services Multimédia",
+                    mention: "M1 validé",
+                    annee: "2025"
+                }
+            ],
             description: "Formation en technologies multimédias et développement web",
             ville: "Montbéliard",
             details: "Spécialisation en produits et services multimédias, développement web et gestion de projets digitaux."
@@ -2185,26 +2195,106 @@ document.addEventListener('DOMContentLoaded', function() {
             type: "ecole",
             location: [14.7136, -17.4545],
             period: "2022 - 2023",
-            diplome: "Licence Pro Administration et Sécurité des réseaux",
-            mention: "Mention Assez Bien",
+            diplomes: [
+                {
+                    nom: "Licence Pro Administration et Sécurité des réseaux",
+                    mention: "Mention Assez Bien",
+                    annee: "2023"
+                }
+            ],
             description: "Formation en cybersécurité et administration réseau",
             ville: "Dakar",
             details: "Approfondissement des compétences en sécurité des systèmes d'information et administration d'infrastructures réseaux."
         },
         {
             id: 4,
-            name: "Centre de Formation Sénégal-Japon",
+            name: "Centre de Formation Professionnel et Technique Sénégal-Japon",
             country: "🇸🇳",
             type: "centre",
             location: [14.7273, -17.4708],
-            period: "2020 - 2022",
-            diplome: "BTS en Informatique industrielle et Réseau",
-            mention: "Mention Assez Bien",
-            description: "Formation technique en informatique industrielle",
+            period: "2019 - 2022",
+            // DEUX DIPLÔMES pour ce centre !
+            diplomes: [
+                {
+                    nom: "BTS en Informatique industrielle et Réseau",
+                    mention: "Mention Assez Bien",
+                    annee: "2022",
+                    details: "Formation complète en informatique industrielle, réseaux et maintenance des systèmes informatiques."
+                },
+                {
+                    nom: "Brevet de Technicien Industriel en Électromécanique",
+                    mention: "Mention Passable",
+                    annee: "2020",
+                    details: "Formation technique en électromécanique, automatismes et maintenance industrielle."
+                }
+            ],
+            description: "Formation technique en informatique industrielle et électromécanique",
             ville: "Dakar",
-            details: "Formation complète en informatique industrielle, automatismes, réseaux et maintenance des systèmes informatiques."
+            details: "Double formation : d'abord en électromécanique, puis spécialisation en informatique industrielle et réseaux."
         }
     ];
+    
+    // Fonction pour générer le contenu HTML des diplômes
+    function generateDiplomesHTML(diplomes) {
+        if (diplomes.length === 1) {
+            // Un seul diplôme
+            const diplome = diplomes[0];
+            return `
+                <div class="popup-diplome">
+                    <p style="margin: 0 0 5px 0;"><strong>🎓 Diplôme obtenu :</strong></p>
+                    <p style="margin: 0; font-weight: 500;">${diplome.nom}</p>
+                    <p style="margin: 5px 0 0 0; color: #e63946; font-weight: 600;">
+                        <i class="fas fa-star"></i> ${diplome.mention} (${diplome.annee})
+                    </p>
+                    ${diplome.details ? `<p style="margin: 5px 0 0 0; font-size: 12px; color: #666;">${diplome.details}</p>` : ''}
+                </div>
+            `;
+        } else {
+            // Plusieurs diplômes
+            let diplomesHTML = `
+                <div class="popup-diplomes-multiple">
+                    <p style="margin: 0 0 10px 0; font-weight: 600; color: #333;">
+                        <i class="fas fa-graduation-cap"></i> Diplômes obtenus (${diplomes.length}) :
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+            `;
+            
+            diplomes.forEach((diplome, index) => {
+                diplomesHTML += `
+                    <div class="diplome-item" style="
+                        background: ${index % 2 === 0 ? '#f8f9fa' : '#fff'};
+                        padding: 8px;
+                        border-radius: 6px;
+                        border-left: 3px solid ${index % 2 === 0 ? '#e63946' : '#007BFF'};
+                    ">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div style="flex: 1;">
+                                <p style="margin: 0 0 4px 0; font-weight: 500; font-size: 13px;">${diplome.nom}</p>
+                                <p style="margin: 0; font-size: 11px; color: #e63946; font-weight: 600;">
+                                    <i class="fas fa-award"></i> ${diplome.mention}
+                                </p>
+                            </div>
+                            <span style="
+                                background: #e63946;
+                                color: white;
+                                padding: 2px 6px;
+                                border-radius: 12px;
+                                font-size: 10px;
+                                font-weight: bold;
+                            ">${diplome.annee}</span>
+                        </div>
+                        ${diplome.details ? `<p style="margin: 4px 0 0 0; font-size: 11px; color: #666; line-height: 1.3;">${diplome.details}</p>` : ''}
+                    </div>
+                `;
+            });
+            
+            diplomesHTML += `
+                    </div>
+                </div>
+            `;
+            return diplomesHTML;
+        }
+    }
     
     // Ajout des marqueurs avec popups détaillés
     const markersGroup = L.layerGroup().addTo(map);
@@ -2217,25 +2307,30 @@ document.addEventListener('DOMContentLoaded', function() {
             title: school.name
         }).addTo(markersGroup);
         
-        // Contenu du popup enrichi
+        // Générer le HTML des diplômes
+        const diplomesHTML = generateDiplomesHTML(school.diplomes);
+        
+        // Contenu du popup enrichi avec gestion multiple des diplômes
         const popupContent = `
             <div class="school-popup">
-                <div class="popup-header">
+                <div class="popup-header" style="background: linear-gradient(135deg, ${schoolColors[school.type] || '#e63946'}, ${school.type === 'centre' ? '#0056b3' : '#c1121f'});">
                     <h4>${school.name} ${school.country}</h4>
                     <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;">
                         <i class="fas fa-map-marker-alt"></i> ${school.ville}
                     </p>
+                    ${school.diplomes.length > 1 ? 
+                        `<p style="margin: 5px 0 0 0; font-size: 11px; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; display: inline-block;">
+                            <i class="fas fa-certificate"></i> ${school.diplomes.length} diplômes
+                        </p>` 
+                        : ''
+                    }
                 </div>
                 <div class="popup-body">
                     <div class="popup-info">
                         <p><strong><i class="far fa-calendar"></i> Période :</strong> ${school.period}</p>
-                        <div class="popup-diplome">
-                            <p style="margin: 0 0 5px 0;"><strong>🎓 Diplôme obtenu :</strong></p>
-                            <p style="margin: 0; font-weight: 500;">${school.diplome}</p>
-                            <p style="margin: 5px 0 0 0; color: #e63946; font-weight: 600;">
-                                <i class="fas fa-star"></i> ${school.mention}
-                            </p>
-                        </div>
+                        
+                        ${diplomesHTML}
+                        
                         <p style="margin-top: 10px;"><strong>📝 Description :</strong></p>
                         <p style="font-size: 13px; line-height: 1.4; color: #555;">${school.details}</p>
                     </div>
@@ -2244,7 +2339,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         marker.bindPopup(popupContent, {
-            maxWidth: 320,
+            maxWidth: school.diplomes.length > 1 ? 350 : 320,
             minWidth: 280,
             className: 'school-popup-wrapper',
             closeButton: true,
@@ -2316,6 +2411,37 @@ document.addEventListener('DOMContentLoaded', function() {
         zoomOutTitle: 'Zoom arrière'
     }).addTo(map);
 </script>
+
+<style>
+    /* Styles supplémentaires pour les diplômes multiples */
+    .popup-diplomes-multiple {
+        margin-top: 10px;
+    }
+    
+    .diplome-item {
+        transition: all 0.3s ease;
+    }
+    
+    .diplome-item:hover {
+        transform: translateX(3px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Amélioration responsive pour les popups */
+    @media (max-width: 480px) {
+        .school-popup-wrapper .leaflet-popup-content {
+            max-width: 280px !important;
+        }
+        
+        .diplome-item {
+            padding: 6px !important;
+        }
+        
+        .diplome-item p {
+            font-size: 12px !important;
+        }
+    }
+</style>
 
   <!-- POPUP -->
 <div id="portfolio-popup" class="popup-overlay">
