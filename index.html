@@ -640,7 +640,101 @@
   transition: all 0.35s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+/* Style amélioré pour l'icône info */
+.info-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-left: 10px;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(230, 57, 70, 0.3);
+    padding: 0;
+}
 
+.info-badge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.5);
+    background: linear-gradient(135deg, #ff6b6b, #e63946);
+}
+
+.pulse-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    border: 2px solid #e63946;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation pour l'info-box */
+.info-box {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-left: 4px solid #e63946;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.info-box:before {
+    content: "💡";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    font-size: 16px;
+    background: white;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.info-box.show {
+    display: block;
+    animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 .social-circle:hover {
   background: #e63946;
   color: white;
@@ -890,13 +984,15 @@ l'innovation des projets IT, tout en renforçant mes compétences sur la Power P
                 <h4 class="timeline-title">
                     Master 1 Technologie de l'information Produits & Services Multimédia
                     <span class="tag">M1 validé</span>
-                    <span class="info-icon" onclick="toggleInfo()">ℹ️</span>
-                </h4>
+<button class="info-badge" onclick="toggleInfo()">
+  <i class="fas fa-info-circle"></i>
+  <span class="pulse-dot"></span>
+</button>                </h4>
                 <p class="timeline-text">À l'Université de Marie & Louis Pasteur 🇫🇷</p>
                 
                 <!-- Info box cachée -->
                 <div id="info-box" class="info-box">
-                    J'avais prévu de poursuivre en Master 2 TDM, mais j'ai été affecté au parcours CCAM, 
+                    J'avais prévu de poursuivre en Master 2 TDM, mais j'ai été affecté au parcours Conception, Création et Arts multimédia, 
                     qui ne correspondait ni à mon projet professionnel ni a mon parcours académique. 
                     C'est pourquoi je n'ai pas poursuivi le M2. 
                 </div>
@@ -2869,6 +2965,12 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('touchstart', function() {
     showFloatingMenu();
 });
+function toggleInfo() {
+    const infoBox = document.getElementById('info-box');
+    if (infoBox) {
+        infoBox.classList.toggle('show');
+    }
+}
 </script>
 <script>
     // Gestion de la bannière alternance centrée
