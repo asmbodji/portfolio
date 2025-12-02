@@ -640,7 +640,283 @@
   transition: all 0.35s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-/* Style amélioré pour l'icône info */
+
+.social-circle:hover {
+  background: #e63946;
+  color: white;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 18px rgba(230, 57, 70, 0.4);
+}
+
+    .info-box.show {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-5px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+/* À ajouter dans votre CSS */
+.current-project .container {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.current-project .row {
+    margin: 0;
+    padding: 0 15px;
+}
+
+.project-content {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Assurer que le texte reste dans les limites */
+.project-info h3,
+.project-info p,
+.project-info ul,
+.project-info .tech-stack {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+/* ========== STYLES POUR LES CARTES DIPLÔMES MODERNES ========== */
+/* Style pour les cartes diplômes */
+.diploma-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.diploma-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #e63946, #ff6b6b);
+}
+
+.diploma-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(230, 57, 70, 0.15);
+    border-color: #e63946;
+}
+
+.diploma-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.diploma-year {
+    background: #f8f9fa;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    color: #e63946;
+    border: 2px solid #e63946;
+    font-size: 14px;
+}
+
+/* Badges de mention modernes */
+.mention-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.mention-badge:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Couleurs spécifiques selon la mention */
+.mention-passable {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+    border: 2px solid #495057;
+}
+
+.mention-passable i {
+    font-size: 12px;
+}
+
+.mention-assezbien {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: 2px solid #20c997;
+}
+
+.mention-assezbien i {
+    font-size: 12px;
+}
+
+.mention-bien {
+    background: linear-gradient(135deg, #007bff, #17a2b8);
+    color: white;
+    border: 2px solid #17a2b8;
+}
+
+.mention-bien i {
+    font-size: 12px;
+}
+
+.mention-tresbien {
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    color: white;
+    border: 2px solid #ff6b6b;
+}
+
+.mention-tresbien i {
+    font-size: 12px;
+}
+
+/* Effet hover */
+.mention-badge:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.diploma-title {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.diploma-info {
+    background: rgba(230, 57, 70, 0.05);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.info-item i {
+    color: #e63946;
+    width: 16px;
+}
+
+.diploma-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.progress-indicator {
+    flex: 1;
+    background: #e0e0e0;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+    border-radius: 3px;
+}
+
+.level {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    min-width: 100px;
+    text-align: right;
+}
+
+/* Styles pour les cartes de diplômes dans la section Diplôme */
+.diplome-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Responsive pour les cartes diplômes */
+@media (max-width: 768px) {
+    .diploma-card {
+        padding: 15px;
+    }
+    
+    .diploma-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .diploma-title {
+        font-size: 1.1rem;
+    }
+    
+    .diploma-footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .progress-indicator {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .level {
+        text-align: left;
+    }
+}
+
+/* Bouton d'information amélioré */
 .info-badge {
     position: relative;
     display: inline-flex;
@@ -735,46 +1011,101 @@
         transform: translateY(0) scale(1);
     }
 }
-.social-circle:hover {
-  background: #e63946;
-  color: white;
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 8px 18px rgba(230, 57, 70, 0.4);
+
+/* Styles pour la formation avec carte moderne */
+.formation-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-    .info-box.show {
-        display: block;
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(-5px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-/* À ajouter dans votre CSS */
-.current-project .container {
-    overflow-x: hidden;
-    max-width: 100%;
+.formation-card-modern {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
 }
 
-.current-project .row {
-    margin: 0;
-    padding: 0 15px;
+.formation-card-modern:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #e63946, #ff6b6b);
 }
 
-.project-content {
-    width: 100%;
-    box-sizing: border-box;
+.formation-card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(230, 57, 70, 0.15);
+    border-color: #e63946;
 }
 
-/* Assurer que le texte reste dans les limites */
-.project-info h3,
-.project-info p,
-.project-info ul,
-.project-info .tech-stack {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    max-width: 100%;
+.formation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.formation-year {
+    background: #f8f9fa;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    color: #e63946;
+    border: 2px solid #e63946;
+    font-size: 14px;
+}
+
+.formation-title {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.formation-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    background: rgba(0, 123, 255, 0.1);
+    color: #007BFF;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
+    border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+.formation-details {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.formation-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(40, 167, 69, 0.3);
 }
 </style>
 
@@ -970,56 +1301,83 @@ l'innovation des projets IT, tout en renforçant mes compétences sur la Power P
         <button id="toggle-formation" class="btn-formation-toggle">Afficher ▼</button>
     </h3>
     <div class="formation-content animated-collapse" id="formation-box">
-        <div class="formation-card">
-         <div class="timeline-item">
-                <div class="circle-dot"></div>
-                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2025 - 2026</h3>
-                <h4 class="timeline-title">Master Expert en Système d'Information</h4>
-                <p class="timeline-text">À l'ISITECH 🇫🇷</p>
+        <div class="formation-cards-container">
+            <!-- Master Expert en Système d'Information -->
+            <div class="formation-card-modern">
+                <div class="formation-header">
+                    <span class="formation-year">2025 - 2026</span>
+                </div>
+                <h3 class="formation-title">Master Expert en Système d'Information</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>À l'ISITECH 🇫🇷</span>
+                </div>
+                <div class="formation-status">
+                    <i class="fas fa-clock"></i>
+                    À venir
+                </div>
             </div>
+            
             <!-- Master 1 -->
-            <div class="timeline-item">
-                <div class="circle-dot"></div>
-                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2024 - 2025</h3>
-                <h4 class="timeline-title">
-                    Master 1 Technologie de l'information Produits & Services Multimédia
-                    <span class="tag">M1 validé</span>
-<button class="info-badge" onclick="toggleInfo()">
-  <i class="fas fa-info-circle"></i>
-  <span class="pulse-dot"></span>
-</button>                </h4>
-                <p class="timeline-text">À l'Université de Marie & Louis Pasteur 🇫🇷</p>
+            <div class="formation-card-modern">
+                <div class="formation-header">
+                    <span class="formation-year">2024 - 2025</span>
+                    <div>
+                        <span class="formation-tag">M1 validé</span>
+                        <button class="info-badge" onclick="toggleInfo()">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="pulse-dot"></span>
+                        </button>
+                    </div>
+                </div>
+                <h3 class="formation-title">Master 1 Technologie de l'information Produits & Services Multimédia</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>À l'Université de Marie & Louis Pasteur 🇫🇷</span>
+                </div>
                 
                 <!-- Info box cachée -->
                 <div id="info-box" class="info-box">
-                    J'avais prévu de poursuivre en Master 2 TDM, mais j'ai été affecté au parcours Conception, Création et Arts multimédia, 
+                    J'avais prévu de poursuivre en Master 2 TDM, mais j'ai été affecté au parcours CCAM, 
                     qui ne correspondait ni à mon projet professionnel ni a mon parcours académique. 
                     C'est pourquoi je n'ai pas poursuivi le M2. 
                 </div>
             </div>
 
             <!-- Licence Pro Vision -->
-            <div class="timeline-item">
-                <div class="circle-dot"></div>
-                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 - 2024</h3>
-                <h4 class="timeline-title">Licence Pro Vision pour la robotique industrielle</h4>
-                <p class="timeline-text">À l'Université de Nîmes 🇫🇷</p>
+            <div class="formation-card-modern">
+                <div class="formation-header">
+                    <span class="formation-year">2023 - 2024</span>
+                </div>
+                <h3 class="formation-title">Licence Pro Vision pour la robotique industrielle</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>À l'Université de Nîmes 🇫🇷</span>
+                </div>
             </div>
 
             <!-- Licence Pro Admin -->
-            <div class="timeline-item">
-                <div class="circle-dot"></div>
-                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022 - 2023</h3>
-                <h4 class="timeline-title">Licence Pro Administration et Sécurité des réseaux</h4>
-                <p class="timeline-text">À l'École Supérieure Multinationale de Télécom 🇸🇳</p>
+            <div class="formation-card-modern">
+                <div class="formation-header">
+                    <span class="formation-year">2022 - 2023</span>
+                </div>
+                <h3 class="formation-title">Licence Pro Administration et Sécurité des réseaux</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>À l'École Supérieure Multinationale de Télécom 🇸🇳</span>
+                </div>
             </div>
 
             <!-- BTS -->
-            <div class="timeline-item">
-                <div class="circle-dot"></div>
-                <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2021 - 2022</h3>
-                <h4 class="timeline-title">2ème année BTS en Informatique industrielle et Réseau</h4>
-                <p class="timeline-text">Au Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</p>
+            <div class="formation-card-modern">
+                <div class="formation-header">
+                    <span class="formation-year">2021 - 2022</span>
+                </div>
+                <h3 class="formation-title">2ème année BTS en Informatique industrielle et Réseau</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Au Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
+                </div>
             </div>
         </div>
     </div>
@@ -1036,42 +1394,129 @@ l'innovation des projets IT, tout en renforçant mes compétences sur la Power P
                                 <button id="toggle-diplome" class="btn-diplome-toggle">Afficher ▼</button>
                             </h3>
                             <div class="diplome-content animated-collapse" id="diplome-box">
-                                <div class="diplome-card">
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2019 - 2020</h3>
-                                        <h4 class="timeline-title">
-                                            Brevet de Technicien industrielle en Electromécanique
-                                            <span class="mention mention-passable">Mention Passable</span>
-                                        </h4>
-                                        <p class="timeline-text">Au Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</p>
+                                <div class="diplome-cards-container">
+                                    <!-- Diplôme 1 -->
+                                    <div class="diploma-card">
+                                        <div class="diploma-header">
+                                            <span class="diploma-year">2020</span>
+                                            <span class="mention-badge mention-passable">
+                                                <i class="fas fa-award"></i>
+                                                Mention Passable
+                                            </span>
+                                        </div>
+                                        
+                                        <h3 class="diploma-title">Brevet de Technicien Industriel en Électromécanique</h3>
+                                        
+                                        <div class="diploma-info">
+                                            <div class="info-item">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span>Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Diplôme d'État - Niveau BAC</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="diploma-footer">
+                                            <div class="progress-indicator">
+                                                <div class="progress-bar" style="width: 60%"></div>
+                                            </div>
+                                            <span class="level">Niveau 4 (BAC)</span>
+                                        </div>
                                     </div>
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2021 - 2022</h3>
-                                        <h4 class="timeline-title">
-                                            Brevet de Technicien Supérieur en Informatique industrielle et Réseau
-                                            <span class="mention mention-assezbien">Mention Assez Bien</span>
-                                        </h4>
-                                        <p class="timeline-text">Au Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</p>
+                                    
+                                    <!-- Diplôme 2 -->
+                                    <div class="diploma-card">
+                                        <div class="diploma-header">
+                                            <span class="diploma-year">2021 - 2022</span>
+                                            <span class="mention-badge mention-assezbien">
+                                                <i class="fas fa-award"></i>
+                                                Mention Assez Bien
+                                            </span>
+                                        </div>
+                                        
+                                        <h3 class="diploma-title">Brevet de Technicien Supérieur en Informatique industrielle et Réseau</h3>
+                                        
+                                        <div class="diploma-info">
+                                            <div class="info-item">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span>Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Diplôme d'État - Niveau BAC+2</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="diploma-footer">
+                                            <div class="progress-indicator">
+                                                <div class="progress-bar" style="width: 70%"></div>
+                                            </div>
+                                            <span class="level">Niveau 5 (BAC+2)</span>
+                                        </div>
                                     </div>
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2022 - 2023</h3>
-                                        <h4 class="timeline-title">
-                                            Licence Pro Administration & Sécurité des Réseaux
-                                            <span class="mention mention-assezbien">Mention Assez Bien</span>
-                                        </h4>
-                                        <p class="timeline-text">À l'École Supérieure Multinationale de Télécom 🇸🇳</p>
+                                    
+                                    <!-- Diplôme 3 -->
+                                    <div class="diploma-card">
+                                        <div class="diploma-header">
+                                            <span class="diploma-year">2022 - 2023</span>
+                                            <span class="mention-badge mention-assezbien">
+                                                <i class="fas fa-award"></i>
+                                                Mention Assez Bien
+                                            </span>
+                                        </div>
+                                        
+                                        <h3 class="diploma-title">Licence Pro Administration & Sécurité des Réseaux</h3>
+                                        
+                                        <div class="diploma-info">
+                                            <div class="info-item">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span>École Supérieure Multinationale de Télécom 🇸🇳</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Diplôme universitaire - Niveau BAC+3</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="diploma-footer">
+                                            <div class="progress-indicator">
+                                                <div class="progress-bar" style="width: 80%"></div>
+                                            </div>
+                                            <span class="level">Niveau 6 (BAC+3)</span>
+                                        </div>
                                     </div>
-                                    <div class="timeline-item">
-                                        <div class="circle-dot"></div>
-                                        <h3 class="timeline-date"><i class="fa fa-calendar"></i> 2023 - 2024</h3>
-                                        <h4 class="timeline-title">
-                                            Licence Pro Vision pour la robotique industrielle
-                                            <span class="mention mention-bien">Mention Bien</span>
-                                        </h4>
-                                        <p class="timeline-text">À l'Université de Nîmes 🇫🇷</p>
+                                    
+                                    <!-- Diplôme 4 -->
+                                    <div class="diploma-card">
+                                        <div class="diploma-header">
+                                            <span class="diploma-year">2023 - 2024</span>
+                                            <span class="mention-badge mention-bien">
+                                                <i class="fas fa-award"></i>
+                                                Mention Bien
+                                            </span>
+                                        </div>
+                                        
+                                        <h3 class="diploma-title">Licence Pro Vision pour la robotique industrielle</h3>
+                                        
+                                        <div class="diploma-info">
+                                            <div class="info-item">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span>Université de Nîmes 🇫🇷</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Diplôme universitaire - Niveau BAC+3</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="diploma-footer">
+                                            <div class="progress-indicator">
+                                                <div class="progress-bar" style="width: 85%"></div>
+                                            </div>
+                                            <span class="level">Niveau 6 (BAC+3)</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2965,12 +3410,6 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('touchstart', function() {
     showFloatingMenu();
 });
-function toggleInfo() {
-    const infoBox = document.getElementById('info-box');
-    if (infoBox) {
-        infoBox.classList.toggle('show');
-    }
-}
 </script>
 <script>
     // Gestion de la bannière alternance centrée
@@ -3030,6 +3469,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 10000);
     }, 3000);
 });
+</script>
+<!-- Script pour le bouton d'information -->
+<script>
+function toggleInfo() {
+    const infoBox = document.getElementById('info-box');
+    if (infoBox) {
+        infoBox.classList.toggle('show');
+    }
+}
 </script>
 </body>
 </html>
