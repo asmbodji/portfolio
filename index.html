@@ -1817,7 +1817,49 @@ expérience en traitement d'images et en analyse de données. Mon objectif est d
     justify-content: center;
     gap: 6px;
 }
+/* Style pour le bouton Voir le site web dans le popup */
+#popup-website-btn {
+    margin: 20px auto 10px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+}
 
+#popup-website-btn:hover {
+    background: linear-gradient(135deg, #ff6b6b, #e63946);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
+}
+
+/* Animation d'apparition */
+@keyframes slideInButton {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#popup-website-btn {
+    animation: slideInButton 0.5s ease forwards;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    #popup-website-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+        width: 90%;
+        margin: 15px auto 5px;
+        display: block;
+        text-align: center;
+    }
+}
 .interest-tags .tag {
     background: rgba(230, 57, 70, 0.1);
     color: #e63946;
@@ -2306,6 +2348,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <!-- Projet 3 - Jeu -->
             <!-- Projet 3 - Jeu -->
+<!-- Projet 3 - Jeu -->
 <div class="portfolio-item ia">
     <div class="portfolio-item-inner shadow-dark">
         <div class="portfolio-img">
@@ -2318,7 +2361,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     data-image="./greenquest.gif"
                     data-title="Description : Roomify – application de décoration assistée par IA avec intégration de réalité augmentée. (en cours)"
                     data-type="video"
-                    data-video="./room-video.mp4">
+                    data-video="./room-video.mp4"
+                    data-website="https://amadsm.infinityfree.me">
                 Voir plus
             </button>
         </div>
@@ -3001,8 +3045,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function openPopup(button) {
     const imageSrc = button.getAttribute("data-image");
     const title = button.getAttribute("data-title");
-    const type = button.getAttribute("data-type"); // Récupère le type (image ou video)
-    const videoSrc = button.getAttribute("data-video"); // Récupère le chemin de la vidéo
+    const type = button.getAttribute("data-type");
+    const videoSrc = button.getAttribute("data-video");
+    const websiteUrl = button.getAttribute("data-website"); // Récupère l'URL du site
 
     // Vider le contenu précédent
     popupImage.style.display = 'none';
@@ -3011,6 +3056,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const existingVideo = document.getElementById('popup-video');
     if (existingVideo) {
         existingVideo.remove();
+    }
+    
+    // Supprimer un bouton existant
+    const existingWebsiteBtn = document.getElementById('popup-website-btn');
+    if (existingWebsiteBtn) {
+        existingWebsiteBtn.remove();
     }
 
     if (type === 'video' && videoSrc) {
@@ -3030,12 +3081,53 @@ document.addEventListener('DOMContentLoaded', function() {
         video.appendChild(source);
         popupImage.parentNode.insertBefore(video, popupImage.nextSibling);
     } else {
-        // Afficher une image (comportement normal)
+        // Afficher une image
         popupImage.src = imageSrc;
         popupImage.style.display = 'block';
     }
 
     popupTitle.innerText = title;
+
+    // Ajouter le bouton "Voir le site web" si l'URL existe
+    if (websiteUrl) {
+        const websiteBtn = document.createElement('a');
+        websiteBtn.id = 'popup-website-btn';
+        websiteBtn.href = websiteUrl;
+        websiteBtn.target = '_blank';
+        websiteBtn.rel = 'noopener noreferrer';
+        websiteBtn.innerHTML = '🌐 Voir le site web';
+        websiteBtn.style.cssText = `
+            display: inline-block;
+            margin: 15px 0;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+            border: 2px solid white;
+        `;
+        
+        // Ajouter l'effet hover
+        websiteBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 6px 20px rgba(230, 57, 70, 0.5)';
+        });
+        
+        websiteBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 15px rgba(230, 57, 70, 0.3)';
+        });
+        
+        // Insérer le bouton après la vidéo ou l'image
+        const container = existingVideo || popupImage;
+        if (container && container.parentNode) {
+            container.parentNode.insertBefore(websiteBtn, container.nextSibling);
+        }
+    }
 
     const descriptions = {
         "Mon projet BTS : Réalisation d'un site web e-commerce pour une entreprise":
