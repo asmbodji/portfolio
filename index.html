@@ -180,7 +180,185 @@
         cursor: pointer;
         font-size: 14px;
     }
+/* ========== TOOLTIP INFOBULLE ÉLÉGANTE ========== */
+.phone-unavailable-tooltip {
+    position: relative !important;
+    cursor: pointer;
+    overflow: visible !important;
+}
 
+/* Masquer le tooltip par défaut */
+.phone-unavailable-tooltip .tooltip-bubble {
+    position: absolute;
+    bottom: calc(100% + 18px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #ffffff;
+    color: #333;
+    width: 320px;
+    max-width: 90vw;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25), 0 5px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid #e63946;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10000;
+    pointer-events: none;
+    display: block;
+}
+
+/* Afficher le tooltip au survol */
+.phone-unavailable-tooltip:hover .tooltip-bubble {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Flèche du tooltip */
+.tooltip-bubble .tooltip-arrow {
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-right: 2px solid #e63946;
+    border-bottom: 2px solid #e63946;
+    display: block;
+}
+
+/* En-tête du tooltip */
+.tooltip-bubble .tooltip-header {
+    background: linear-gradient(135deg, #e63946, #c1121f);
+    color: #ffffff;
+    padding: 14px 20px;
+    border-radius: 14px 14px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tooltip-bubble .tooltip-header i {
+    font-size: 17px;
+    animation: warningPulse 2s infinite;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+@keyframes warningPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.15); }
+}
+
+/* Corps du tooltip */
+.tooltip-bubble .tooltip-body {
+    padding: 16px 20px 20px 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #555;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tooltip-bubble .tooltip-line {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Séparateur */
+.tooltip-bubble .tooltip-divider {
+    display: block;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e63946, transparent);
+    margin: 12px 0;
+    opacity: 0.4;
+}
+
+/* Email en évidence */
+.tooltip-bubble .tooltip-email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e63946;
+    font-weight: 500;
+}
+
+.tooltip-bubble .tooltip-email i {
+    font-size: 16px;
+    color: #e63946;
+}
+
+.tooltip-bubble .tooltip-email strong {
+    color: #c1121f;
+    font-weight: 700;
+}
+
+/* Effet visuel sur la carte au survol */
+.phone-unavailable-tooltip:hover {
+    border-color: #e63946 !important;
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.25) !important;
+    transform: translateY(-6px);
+    transition: all 0.3s ease;
+}
+
+/* Animation d'apparition */
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+.phone-unavailable-tooltip:hover .tooltip-bubble {
+    animation: tooltipFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .phone-unavailable-tooltip .tooltip-bubble {
+        width: 280px;
+        bottom: calc(100% + 15px);
+    }
+    
+    .tooltip-bubble .tooltip-header {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+    
+    .tooltip-bubble .tooltip-body {
+        padding: 14px 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .phone-unavailable-tooltip .tooltip-bubble {
+        width: 250px;
+        left: 10%;
+        transform: translateX(0) translateY(10px);
+    }
+    
+    .phone-unavailable-tooltip:hover .tooltip-bubble {
+        transform: translateX(0) translateY(0);
+    }
+    
+    .tooltip-bubble .tooltip-arrow {
+        left: 15%;
+    }
+}
     .info-box {
         display: none;
         margin-top: 10px;
@@ -1207,8 +1385,8 @@
             <i class="fas fa-briefcase"></i>
         </div>
         <div class="banner-text">
-            <h3>🔍 Je recherche une alternance !</h3>
-            <p><strong>En tant que Data scientist</strong> 3 semaines en entreprise / 2 semaines à l'université</p>
+            <h3>🔍 Je recherche un CDD/CDI !</h3>
+            <p><strong>En tant que</strong> Technicien informatique</p>
             <a href="#contact" class="btn-banner">Me contacter</a>
         </div>
     </div>
@@ -1217,7 +1395,7 @@
 <!-- Bouton flottant pour réouvrir la bannière -->
 <div id="banner-reopen" class="banner-reopen-btn" onclick="showBanner()">
     <i class="fas fa-briefcase"></i>
-    <span>Alternance</span>
+    <span>CDD/CDI</span>
 </div>
        <div class="main-container">
      <div class="aside">
@@ -1395,12 +1573,12 @@ Mon objectif est de contribuer à des projets innovants tout en continuant à re
             <!-- Master Expert en Système d'Information -->
             <div class="formation-card-modern">
                 <div class="formation-header">
-                    <span class="formation-year">2026 - 2027</span>
+                    <span class="formation-year">2025 - 2026</span>
                 </div>
-                <h3 class="formation-title">Master DATA & IA</h3>
+                <h3 class="formation-title">Master Expert en Système d'Information</h3>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>À l'université Catholique de Lille 🇫🇷</span>
+                    <span>À l'ISITECH 🇫🇷</span>
                 </div>
                 <div class="formation-status">
                     <i class="fas fa-clock"></i>
@@ -2610,11 +2788,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h4 class="contact-sub-title padd-15">JE SUIS À VOTRE SERVICE</h4>
         
                 <div class="row contact-buttons">
-  <a href="tel:0758864201" class="contact-card padd-15">
+  <a href="tel:0758864201" class="contact-card padd-15 phone-unavailable-tooltip">
     <div class="icon"><i class="fa fa-phone"></i></div>
     <h4>Appelez Moi</h4>
     <p>0758864201</p>
-  </a>
+    
+    <!-- Info-bulle élégante -->
+    <span class="tooltip-bubble">
+        <span class="tooltip-header">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Information</span>
+        </span>
+        <span class="tooltip-body">
+            <span class="tooltip-line">Actuellement injoignable avec ce numéro car je suis à l'étranger.</span>
+            <span class="tooltip-divider"></span>
+            <span class="tooltip-email">
+                <i class="fas fa-envelope"></i>
+                Pour tout contact : <strong>asmbodj@hotmail.com</strong>
+            </span>
+        </span>
+        <span class="tooltip-arrow"></span>
+    </span>
+</a>
 
   <a href="https://www.google.com/maps/place/18+Rue+Victor+Hugo,+69190+Saint-Fons" target="_blank" class="contact-card padd-15">
     <div class="icon"><i class="fa fa-map-marker"></i></div>
