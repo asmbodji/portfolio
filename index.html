@@ -215,7 +215,73 @@
     transform: translateX(-50%) translateY(0);
 }
 
-/* Flèche du tooltip */
+/* AFFICHAGE EN MODE MOBILE - TOUCH */
+@media (max-width: 991px) {
+    .phone-unavailable-tooltip .tooltip-bubble {
+        bottom: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) translateY(10px);
+        width: 300px;
+        max-width: 85vw;
+        position: fixed;
+        border: 3px solid #e63946;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+    
+    .phone-unavailable-tooltip:hover .tooltip-bubble {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    
+    /* Flèche repositionnée pour mobile */
+    .phone-unavailable-tooltip .tooltip-bubble .tooltip-arrow {
+        display: none;
+    }
+    
+    /* Animation mobile */
+    @keyframes tooltipFadeInMobile {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -50%) translateY(20px) scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%) translateY(0) scale(1);
+        }
+    }
+    
+    .phone-unavailable-tooltip:hover .tooltip-bubble {
+        animation: tooltipFadeInMobile 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+    .phone-unavailable-tooltip .tooltip-bubble {
+        width: 280px;
+        max-width: 92vw;
+    }
+    
+    .tooltip-bubble .tooltip-header {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+    
+    .tooltip-bubble .tooltip-body {
+        padding: 14px 15px;
+        font-size: 12.5px;
+    }
+}
+
+@media (max-width: 380px) {
+    .phone-unavailable-tooltip .tooltip-bubble {
+        width: 250px;
+        max-width: 95vw;
+    }
+}
+
+/* --- RESTE DU CSS INCHANGÉ --- */
+/* Flèche du tooltip (desktop) */
 .tooltip-bubble .tooltip-arrow {
     position: absolute;
     bottom: -9px;
@@ -310,7 +376,7 @@
     transition: all 0.3s ease;
 }
 
-/* Animation d'apparition */
+/* Animation d'apparition desktop */
 @keyframes tooltipFadeIn {
     from {
         opacity: 0;
@@ -324,40 +390,6 @@
 
 .phone-unavailable-tooltip:hover .tooltip-bubble {
     animation: tooltipFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .phone-unavailable-tooltip .tooltip-bubble {
-        width: 280px;
-        bottom: calc(100% + 15px);
-    }
-    
-    .tooltip-bubble .tooltip-header {
-        padding: 12px 16px;
-        font-size: 13px;
-    }
-    
-    .tooltip-bubble .tooltip-body {
-        padding: 14px 16px;
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 480px) {
-    .phone-unavailable-tooltip .tooltip-bubble {
-        width: 250px;
-        left: 10%;
-        transform: translateX(0) translateY(10px);
-    }
-    
-    .phone-unavailable-tooltip:hover .tooltip-bubble {
-        transform: translateX(0) translateY(0);
-    }
-    
-    .tooltip-bubble .tooltip-arrow {
-        left: 15%;
-    }
 }
     .info-box {
         display: none;
@@ -1385,8 +1417,8 @@
             <i class="fas fa-briefcase"></i>
         </div>
         <div class="banner-text">
-            <h3>🔍 Je recherche un CDD/CDI !</h3>
-            <p><strong>En tant que</strong> Technicien informatique</p>
+            <h3>🔍 Je recherche une alternance !</h3>
+            <p><strong>En tant que</strong> Data scientist</p>
             <a href="#contact" class="btn-banner">Me contacter</a>
         </div>
     </div>
@@ -1395,7 +1427,7 @@
 <!-- Bouton flottant pour réouvrir la bannière -->
 <div id="banner-reopen" class="banner-reopen-btn" onclick="showBanner()">
     <i class="fas fa-briefcase"></i>
-    <span>CDD/CDI</span>
+    <span>Alternance</span>
 </div>
        <div class="main-container">
      <div class="aside">
