@@ -975,7 +975,35 @@
 .mention-bien i {
     font-size: 12px;
 }
+/* Badge "Étranger" discret sur la carte téléphone */
+.phone-unavailable-tooltip {
+    position: relative;
+}
 
+.phone-unavailable-tooltip::after {
+    content: "🌍 A l'Étranger";
+    position: absolute;
+    top: -8px;
+    right: 15px;
+    background: linear-gradient(135deg, #e63946, #c1121f);
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(230, 57, 70, 0.3);
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .phone-unavailable-tooltip::after {
+        font-size: 8px;
+        padding: 2px 6px;
+        top: -5px;
+        right: 10px;
+    }
+}
 .mention-tresbien {
     background: linear-gradient(135deg, #e63946, #ff6b6b);
     color: white;
@@ -1386,7 +1414,7 @@
         </div>
         <div class="banner-text">
             <h3>🔍 Je recherche une alternance !</h3>
-            <p><strong>En tant que</strong> Data Scientist, rythme 3 semaines en entreprise / 2 semaines à l'université</p>
+            <p><strong>En tant que</strong> Ingenieur IA / Data Scientist, rythme 3 semaines en entreprise / 2 semaines à l'université</p>
             <a href="#contact" class="btn-banner">Me contacter</a>
         </div>
     </div>
@@ -2791,8 +2819,11 @@ document.addEventListener('DOMContentLoaded', function() {
   <a href="tel:0758864201" class="contact-card padd-15 phone-unavailable-tooltip">
     <div class="icon"><i class="fa fa-phone"></i></div>
     <h4>Appelez Moi</h4>
-    <p>0758864201</p>
-    
+   <!-- Dans la carte téléphone, modifier le <p> -->
+<p>
+    0758864201 
+    <i class="fas fa-exclamation-triangle" style="color: #e63946; font-size: 12px; margin-left: 5px;" title="Injoignable à l'étranger - Contactez-moi par email"></i>
+</p>
     <!-- Info-bulle élégante -->
     <span class="tooltip-bubble">
         <span class="tooltip-header">
