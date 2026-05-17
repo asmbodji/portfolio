@@ -818,21 +818,7 @@
   transition: all 0.35s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-/* Empêcher le scroll horizontal sur tout le site */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-}
 
-* {
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.container {
-    overflow-x: hidden;
-}
 .social-circle:hover {
   background: #e63946;
   color: white;
@@ -1833,7 +1819,18 @@ html, body {
                     </div>
                 </div>
                 
-
+                <!-- CARTE INTERACTIVE -->
+                <div class="padd-15">
+                    <h3 class="title">Localisation des Écoles</h3>
+                    <div id="map"></div>
+                    <p style="text-align: center; margin-top: 10px; color: #666; font-size: 14px;">
+                        <i class="fas fa-map-marker-alt" style="color: #e63946;"></i> Cliquez sur les marqueurs pour voir les détails
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
                         
                         <!-- Modal Projets -->
 <div id="modal-projets" class="custom-modal">
@@ -1880,11 +1877,6 @@ html, body {
 </div>
 
         </section>
-
-
-
-        
-        
             <!-- Section Centres d'Intérêt -->
 <section class="interests section" id="interests">
     <div class="container">
@@ -2088,282 +2080,7 @@ html, body {
     transition: all 0.3s ease;
     color: #e63946;
 }
-/* ========== STYLES POUR LA ROUE DES COMPÉTENCES ========== */
-.skills-wheel-wrapper {
-    flex: 1;
-    min-width: 300px;
-    position: relative;
-}
 
-.skills-wheel-title {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: var(--text-black-900);
-    text-align: center;
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.skills-wheel-title:after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, #e63946, #ff6b6b);
-    border-radius: 3px;
-}
-
-.wheel-container {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto;
-}
-
-.wheel-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    overflow: visible;
-}
-
-.wheel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.wheel-item {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--bg-black-100), var(--bg-black-50));
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    border: 2px solid rgba(230, 57, 70, 0.3);
-    z-index: 10;
-}
-
-.wheel-item:hover {
-    transform: scale(1.12);
-    border-color: #e63946;
-    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
-    background: linear-gradient(135deg, #e63946, #ff6b6b);
-}
-
-.wheel-item:hover .wheel-icon {
-    color: white;
-}
-
-.wheel-item:hover .wheel-label {
-    color: white;
-}
-
-.wheel-item.active {
-    border-color: #e63946;
-    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.3), 0 10px 25px rgba(230, 57, 70, 0.4);
-    transform: scale(1.08);
-}
-
-.wheel-icon {
-    font-size: 30px;
-    color: #e63946;
-    transition: color 0.3s ease;
-}
-
-.wheel-label {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--text-black-700);
-    text-align: center;
-    transition: color 0.3s ease;
-}
-
-/* Centre info */
-.wheel-center-info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, #e63946, #ff6b6b);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    z-index: 20;
-    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.5);
-    border: 3px solid white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.wheel-center-info:hover {
-    transform: translate(-50%, -50%) scale(1.05);
-}
-
-.center-icon {
-    font-size: 28px;
-    color: white;
-}
-
-.center-text {
-    text-align: center;
-}
-
-.skill-name {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    color: white;
-}
-
-.skill-level {
-    display: block;
-    font-size: 9px;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* Contrôles */
-.wheel-controls {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.wheel-control-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #e63946, #ff6b6b);
-    border: none;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
-}
-
-.wheel-control-btn:hover {
-    transform: scale(1.1);
-}
-
-/* Dots */
-.wheel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-}
-
-.wheel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--bg-black-50);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.wheel-dot.active {
-    width: 25px;
-    border-radius: 12px;
-    background: linear-gradient(90deg, #e63946, #ff6b6b);
-}
-
-/* Animation */
-@keyframes pulseCenter {
-    0% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.1); }
-    100% { transform: translate(-50%, -50%) scale(1); }
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .wheel-item {
-        width: 70px;
-        height: 70px;
-    }
-    .wheel-icon {
-        font-size: 26px;
-    }
-    .wheel-label {
-        font-size: 9px;
-    }
-    .wheel-center-info {
-        width: 90px;
-        height: 90px;
-    }
-    .center-icon {
-        font-size: 26px;
-    }
-}
-
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-    }
-    .personal-info, .skills-wheel-wrapper {
-        width: 100%;
-    }
-    .skills-wheel-wrapper {
-        margin-top: 40px;
-    }
-    .wheel-item {
-        width: 65px;
-        height: 65px;
-    }
-    .wheel-icon {
-        font-size: 24px;
-    }
-    .wheel-center-info {
-        width: 85px;
-        height: 85px;
-    }
-}
-
-@media (max-width: 480px) {
-    .wheel-item {
-        width: 55px;
-        height: 55px;
-    }
-    .wheel-icon {
-        font-size: 20px;
-    }
-    .wheel-label {
-        font-size: 8px;
-    }
-    .wheel-center-info {
-        width: 75px;
-        height: 75px;
-    }
-    .center-icon {
-        font-size: 22px;
-    }
-}
 .interest-card:hover .interest-icon {
     transform: scale(1.05);
 }
@@ -2407,7 +2124,303 @@ html, body {
     border: none;
     cursor: pointer;
 }
+/* ========== STYLES POUR LA ROUE DES COMPÉTENCES (SANS DEBORDEMENT) ========== */
+.skills-wheel-wrapper {
+    flex: 1;
+    min-width: 280px;
+    max-width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
 
+.skills-wheel-title {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-black-900);
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.skills-wheel-title:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+    border-radius: 3px;
+}
+
+.wheel-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.wheel-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: visible;
+}
+
+.wheel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wheel-item {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg, var(--bg-black-100), var(--bg-black-50));
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(230, 57, 70, 0.3);
+    z-index: 10;
+}
+
+.wheel-item:hover {
+    transform: scale(1.12);
+    border-color: #e63946;
+    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+}
+
+.wheel-item:hover .wheel-icon {
+    color: white;
+}
+
+.wheel-item:hover .wheel-label {
+    color: white;
+}
+
+.wheel-item.active {
+    border-color: #e63946;
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.3), 0 10px 25px rgba(230, 57, 70, 0.4);
+    transform: scale(1.08);
+}
+
+.wheel-icon {
+    font-size: 28px;
+    color: #e63946;
+    transition: color 0.3s ease;
+}
+
+.wheel-label {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--text-black-700);
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+/* Centre info */
+.wheel-center-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    z-index: 20;
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.5);
+    border: 3px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wheel-center-info:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.center-icon {
+    font-size: 26px;
+    color: white;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.skill-name {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+}
+
+.skill-level {
+    display: block;
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Contrôles */
+.wheel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.wheel-control-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+}
+
+.wheel-control-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Dots */
+.wheel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.wheel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--bg-black-50);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.wheel-dot.active {
+    width: 22px;
+    border-radius: 11px;
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+}
+
+/* Animation */
+@keyframes pulseCenter {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Empêcher le scroll horizontal global */
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .wheel-item {
+        width: 65px;
+        height: 65px;
+    }
+    .wheel-icon {
+        font-size: 24px;
+    }
+    .wheel-label {
+        font-size: 8px;
+    }
+    .wheel-center-info {
+        width: 80px;
+        height: 80px;
+    }
+    .center-icon {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    .personal-info, .skills-wheel-wrapper {
+        width: 100%;
+    }
+    .skills-wheel-wrapper {
+        margin-top: 40px;
+    }
+    .wheel-item {
+        width: 60px;
+        height: 60px;
+    }
+    .wheel-icon {
+        font-size: 22px;
+    }
+    .wheel-center-info {
+        width: 75px;
+        height: 75px;
+    }
+    .wheel-container {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wheel-item {
+        width: 55px;
+        height: 55px;
+    }
+    .wheel-icon {
+        font-size: 20px;
+    }
+    .wheel-label {
+        font-size: 7px;
+    }
+    .wheel-center-info {
+        width: 70px;
+        height: 70px;
+    }
+    .center-icon {
+        font-size: 22px;
+    }
+    .skill-name {
+        font-size: 9px;
+    }
+    .skill-level {
+        font-size: 7px;
+    }
+    .wheel-container {
+        max-width: 300px;
+    }
+}
 #popup-website-btn:hover {
     background: linear-gradient(135deg, #ff6b6b, #e63946);
     transform: translateY(-3px);
