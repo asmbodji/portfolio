@@ -818,7 +818,21 @@
   transition: all 0.35s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+/* Empêcher le scroll horizontal sur tout le site */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
 
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    overflow-x: hidden;
+}
 .social-circle:hover {
   background: #e63946;
   color: white;
@@ -1474,362 +1488,363 @@
     
 
         <section class="about section" id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="section-title padd-15">
-                        <h2>À Propos de Moi</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="about-content padd-15">
-                        <div class="row">
-                            <div class="about-text padd-15">
-                                <h3>Je suis Amadou Sow Mbodji, <span> passionné par l'informatique, le développement web et l'IA. 💻📱</span></h3>
-                                <p>
-  J'ai suivi une formation technique au CFPT Sénégal/Japon, où j'ai obtenu un BTI en électromécanique puis un BTS en informatique industrielle et réseaux. 
-  J'ai ensuite validé deux licences professionnelles : l'une en administration et sécurité des réseaux, et l'autre en vision pour la robotique industrielle à l'Université de Nîmes. 
-</p>
-
-<div class="highlight-box">
-Passionné par la data, le développement web et l’intelligence artificielle, je dispose d’une solide base en programmation (Python, Power BI, automatisation) ainsi que d’une expérience en traitement d’images et en analyse de données.
-
-Je m’intéresse particulièrement à la conception de solutions innovantes alliant développement web et technologies d’IA, avec une approche orientée performance et exploitation des données.
-
-Mon objectif est de contribuer à des projets innovants tout en continuant à renforcer mes compétences techniques, notamment en développement web et dans l’intégration de solutions basées sur l’intelligence artificielle.
-
-À long terme, je souhaite créer ma propre entreprise dans le domaine des technologies.
-</div>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="personal-info padd-15">
-                                <div class="row">
-                                    <div class="info-item padd-15">
-                                        <p>Date de naissance: <span>12 janvier 1998</span></p>
-                                    </div>
-                                    <div class="info-item padd-15">
-                                        <p>Age: <span>28</span></p>
-                                    </div>
-                                    <div class="info-item padd-15">
-                                        <p>Email: <span>asmbodj@hotmail.com</span></p>
-                                    </div>
-                                    <div class="info-item padd-15">
-                                        <p>Niveau: <span>Master</span></p>
-                                    </div>
-                                    <div class="info-item padd-15">
-                                        <p>Num tel: <span>0758864201</span></p>
-                                    </div>
-                                    <div class="info-item padd-15">
-                                        <p>Ville: <span>Lyon</span></p>
-                                    </div>
-                                </div>
-                             <div class="row">
-    <div class="buttons padd-15" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-        <a href="CVSM.pdf" class="btn">Télécharger CV</a>
-        <a href="#contact" class="btn engagez-moi">Engagez-moi</a>
-        <button class="btn" onclick="openModal('modal-projets')">Mes projets</button>
-        <button class="btn" onclick="openModal('modal-competences')">Compétences</button>
-    </div>
-</div>
-
-                            </div>
-                            <div class="skills padd-15">
-                                <div class="row">
-                                    <div class="skill-item padd-15">
-                                        <h5>C, C++</h5>
-                                        <div class="progress">
-                                            <div class="progress-in" style="width: 80%;"></div>
-                                            <div class="skill-percent">80%</div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item padd-15">
-                                        <h5>PYTHON, HTML & CSS</h5>
-                                        <div class="progress">
-                                            <div class="progress-in" style="width: 90%;"></div>
-                                            <div class="skill-percent">90%</div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item padd-15">
-                                        <h5>JAVA & JS</h5>
-                                        <div class="progress">
-                                            <div class="progress-in" style="width: 81%;"></div>
-                                            <div class="skill-percent">81%</div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item padd-15">
-                                        <h5>VBA</h5>
-                                        <div class="progress">
-                                            <div class="progress-in" style="width: 90%;"></div>
-                                            <div class="skill-percent">90%</div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item padd-15">
-                                        <h5>Flutter & Swift</h5>
-                                        <div class="progress">
-                                            <div class="progress-in" style="width: 75%;"></div>
-                                            <div class="skill-percent">75%</div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item padd-15">
-                                        <h5>PHP & MYSQL</h5>
-                                        <div class="progress">
-                                            <div class="progress-in" style="width: 90%;"></div>
-                                            <div class="skill-percent">90%</div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item padd-15">
-                                        <h5>BootStrap & Wordpress</h5>
-                                        <div class="progress">
-                                            <div class="progress-in" style="width: 76%;"></div>
-                                            <div class="skill-percent">76%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Logiciels maîtrisés -->
-
-
-                       <div class="formation-section padd-15">
-    <h3 class="title">
-        Formation
-        <button id="toggle-formation" class="btn-formation-toggle">Afficher ▼</button>
-    </h3>
-    <div class="formation-content animated-collapse" id="formation-box">
-        <div class="formation-cards-container">
-            <!-- Master Expert en Système d'Information -->
-            <div class="formation-card-modern">
-                <div class="formation-header">
-                    <span class="formation-year">2026 - 2027</span>
-                </div>
-                <h3 class="formation-title">Master Data & IA</h3>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>À l'Université Catholique de Lille 🇫🇷</span>
-                </div>
-                <div class="formation-status">
-                    <i class="fas fa-clock"></i>
-                    À venir
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>À Propos de Moi</h2>
             </div>
-            
-            <!-- Master 1 -->
-            <div class="formation-card-modern">
-                <div class="formation-header">
-                    <span class="formation-year">2024 - 2025</span>
-                    <div>
-                        <span class="formation-tag">M1 validé</span>
-                        <button class="info-badge" onclick="toggleInfo()">
-                            <i class="fas fa-info-circle"></i>
-                            <span class="pulse-dot"></span>
-                        </button>
+        </div>
+        <div class="row">
+            <div class="about-content padd-15">
+                <div class="row">
+                    <div class="about-text padd-15">
+                        <h3>Je suis Amadou Sow Mbodji, <span> passionné par l'informatique, le développement web et l'IA. 💻📱</span></h3>
+                        <p>
+                            J'ai suivi une formation technique au CFPT Sénégal/Japon, où j'ai obtenu un BTI en électromécanique puis un BTS en informatique industrielle et réseaux. 
+                            J'ai ensuite validé deux licences professionnelles : l'une en administration et sécurité des réseaux, et l'autre en vision pour la robotique industrielle à l'Université de Nîmes.
+                        </p>
+                        <div class="highlight-box">
+                            Passionné par la data, le développement web et l'intelligence artificielle, je dispose d'une solide base en programmation (Python, Power BI, automatisation) ainsi que d'une expérience en traitement d'images et en analyse de données.
+                            Je m'intéresse particulièrement à la conception de solutions innovantes alliant développement web et technologies d'IA, avec une approche orientée performance et exploitation des données.
+                            Mon objectif est de contribuer à des projets innovants tout en continuant à renforcer mes compétences techniques, notamment en développement web et dans l'intégration de solutions basées sur l'intelligence artificielle.
+                            À long terme, je souhaite créer ma propre entreprise dans le domaine des technologies.
+                        </div>
                     </div>
-                </div>
-                <h3 class="formation-title">Master 1 Technologie de l'information Produits & Services Multimédia</h3>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>À l'Université de Marie & Louis Pasteur 🇫🇷</span>
                 </div>
                 
-                <!-- Info box cachée -->
-                <div id="info-box" class="info-box">
-                    J'avais prévu de poursuivre en Master 2 parcours TDM, mais j'ai été affecté au parcours Conception, Création et Arts multimédia, 
-                    qui ne correspondait ni à mon projet professionnel ni a mon parcours académique. 
-                    C'est pourquoi je n'ai pas poursuivi le M2. 
+                <div class="row">
+                    <!-- PARTIE GAUCHE : INFORMATIONS PERSONNELLES -->
+                    <div class="personal-info padd-15">
+                        <div class="row">
+                            <div class="info-item padd-15">
+                                <p>Date de naissance: <span>12 janvier 1998</span></p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>Age: <span>28</span></p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>Email: <span>asmbodj@hotmail.com</span></p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>Niveau: <span>Master</span></p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>Num tel: <span>0758864201</span></p>
+                            </div>
+                            <div class="info-item padd-15">
+                                <p>Ville: <span>Lyon</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="buttons padd-15" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start;">
+                                <a href="CVSM.pdf" class="btn">Télécharger CV</a>
+                                <a href="#contact" class="btn engagez-moi">Engagez-moi</a>
+                                <button class="btn" onclick="openModal('modal-projets')">Mes projets</button>
+                                <button class="btn" onclick="openModal('modal-competences')">Compétences</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PARTIE DROITE : ROUE DES COMPÉTENCES -->
+                    <div class="skills-wheel-wrapper padd-15">
+                        <h4 class="skills-wheel-title">🎯 Langages & Frameworks</h4>
+                        <div class="wheel-container">
+                            <div class="wheel-wrapper">
+                                <div class="wheel" id="skillsWheel">
+                                    <div class="wheel-item" data-skill="Python" data-level="90">
+                                        <div class="wheel-icon"><i class="fab fa-python"></i></div>
+                                        <span class="wheel-label">Python</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="JavaScript" data-level="85">
+                                        <div class="wheel-icon"><i class="fab fa-js"></i></div>
+                                        <span class="wheel-label">JavaScript</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="React" data-level="75">
+                                        <div class="wheel-icon"><i class="fab fa-react"></i></div>
+                                        <span class="wheel-label">React</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="Node.js" data-level="80">
+                                        <div class="wheel-icon"><i class="fab fa-node-js"></i></div>
+                                        <span class="wheel-label">Node.js</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="PHP" data-level="85">
+                                        <div class="wheel-icon"><i class="fab fa-php"></i></div>
+                                        <span class="wheel-label">PHP</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="Java" data-level="75">
+                                        <div class="wheel-icon"><i class="fab fa-java"></i></div>
+                                        <span class="wheel-label">Java</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="MySQL" data-level="90">
+                                        <div class="wheel-icon"><i class="fas fa-database"></i></div>
+                                        <span class="wheel-label">MySQL</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="Flutter" data-level="75">
+                                        <div class="wheel-icon"><i class="fab fa-flutter"></i></div>
+                                        <span class="wheel-label">Flutter</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="Bootstrap" data-level="85">
+                                        <div class="wheel-icon"><i class="fab fa-bootstrap"></i></div>
+                                        <span class="wheel-label">Bootstrap</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="HTML/CSS" data-level="90">
+                                        <div class="wheel-icon"><i class="fab fa-html5"></i></div>
+                                        <span class="wheel-label">HTML5/CSS3</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="C/C++" data-level="80">
+                                        <div class="wheel-icon"><i class="fas fa-code"></i></div>
+                                        <span class="wheel-label">C/C++</span>
+                                    </div>
+                                    <div class="wheel-item" data-skill="VBA" data-level="90">
+                                        <div class="wheel-icon"><i class="fas fa-file-excel"></i></div>
+                                        <span class="wheel-label">VBA</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Centre info -->
+                            <div class="wheel-center-info" id="wheelCenterInfo">
+                                <div class="center-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="center-text">
+                                    <span class="skill-name">Compétences</span>
+                                    <span class="skill-level">Survolez / Cliquez</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contrôles -->
+                        <div class="wheel-controls">
+                            <button class="wheel-control-btn" id="wheelPrevBtn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="wheel-control-btn" id="wheelPlayPauseBtn">
+                                <i class="fas fa-pause"></i>
+                            </button>
+                            <button class="wheel-control-btn" id="wheelNextBtn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Indicateurs -->
+                        <div class="wheel-dots" id="wheelDots"></div>
+                    </div>
                 </div>
-            </div>
+                
+                <!-- SECTION FORMATION -->
+                <div class="formation-section padd-15">
+                    <h3 class="title">
+                        Formation
+                        <button id="toggle-formation" class="btn-formation-toggle">Afficher ▼</button>
+                    </h3>
+                    <div class="formation-content animated-collapse" id="formation-box">
+                        <div class="formation-cards-container">
+                            <div class="formation-card-modern">
+                                <div class="formation-header">
+                                    <span class="formation-year">2026 - 2027</span>
+                                </div>
+                                <h3 class="formation-title">Master Data & IA</h3>
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>À l'Université Catholique de Lille 🇫🇷</span>
+                                </div>
+                                <div class="formation-status">
+                                    <i class="fas fa-clock"></i>
+                                    À venir
+                                </div>
+                            </div>
+                            
+                            <div class="formation-card-modern">
+                                <div class="formation-header">
+                                    <span class="formation-year">2024 - 2025</span>
+                                    <div>
+                                        <span class="formation-tag">M1 validé</span>
+                                        <button class="info-badge" onclick="toggleInfo()">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span class="pulse-dot"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <h3 class="formation-title">Master 1 Technologie de l'information Produits & Services Multimédia</h3>
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>À l'Université de Marie & Louis Pasteur 🇫🇷</span>
+                                </div>
+                                <div id="info-box" class="info-box">
+                                    J'avais prévu de poursuivre en Master 2 parcours TDM, mais j'ai été affecté au parcours Conception, Création et Arts multimédia, 
+                                    qui ne correspondait ni à mon projet professionnel ni a mon parcours académique. 
+                                    C'est pourquoi je n'ai pas poursuivi le M2. 
+                                </div>
+                            </div>
 
-            <!-- Licence Pro Vision -->
-            <div class="formation-card-modern">
-                <div class="formation-header">
-                    <span class="formation-year">2023 - 2024</span>
-                </div>
-                <h3 class="formation-title">Licence Pro Vision par ordinateur</h3>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>À l'Université de Nîmes 🇫🇷</span>
-                </div>
-            </div>
+                            <div class="formation-card-modern">
+                                <div class="formation-header">
+                                    <span class="formation-year">2023 - 2024</span>
+                                </div>
+                                <h3 class="formation-title">Licence Pro Vision par ordinateur</h3>
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>À l'Université de Nîmes 🇫🇷</span>
+                                </div>
+                            </div>
 
-            <!-- Licence Pro Admin -->
-            <div class="formation-card-modern">
-                <div class="formation-header">
-                    <span class="formation-year">2022 - 2023</span>
-                </div>
-                <h3 class="formation-title">Licence Pro Administration et Sécurité des réseaux</h3>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>À l'École Supérieure Multinationale de Télécom 🇸🇳</span>
-                </div>
-            </div>
+                            <div class="formation-card-modern">
+                                <div class="formation-header">
+                                    <span class="formation-year">2022 - 2023</span>
+                                </div>
+                                <h3 class="formation-title">Licence Pro Administration et Sécurité des réseaux</h3>
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>À l'École Supérieure Multinationale de Télécom 🇸🇳</span>
+                                </div>
+                            </div>
 
-            <!-- BTS -->
-            <div class="formation-card-modern">
-                <div class="formation-header">
-                    <span class="formation-year">2021 - 2022</span>
+                            <div class="formation-card-modern">
+                                <div class="formation-header">
+                                    <span class="formation-year">2021 - 2022</span>
+                                </div>
+                                <h3 class="formation-title">2ème année BTS en Informatique industrielle et Réseau</h3>
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Au Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="formation-title">2ème année BTS en Informatique industrielle et Réseau</h3>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Au Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
+                
+                <!-- SECTION DIPLÔME -->
+                <div class="diplome-section padd-15">
+                    <h3 class="title">
+                        Diplôme
+                        <button id="toggle-diplome" class="btn-diplome-toggle">Afficher ▼</button>
+                    </h3>
+                    <div class="diplome-content animated-collapse" id="diplome-box">
+                        <div class="diplome-cards-container">
+                            <div class="diploma-card">
+                                <div class="diploma-header">
+                                    <span class="diploma-year">2020</span>
+                                    <span class="mention-badge mention-passable">
+                                        <i class="fas fa-award"></i>
+                                        Mention Passable
+                                    </span>
+                                </div>
+                                <h3 class="diploma-title">Brevet de Technicien Industriel en Électromécanique</h3>
+                                <div class="diploma-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Diplôme d'État - Niveau BAC</span>
+                                    </div>
+                                </div>
+                                <div class="diploma-footer">
+                                    <div class="progress-indicator">
+                                        <div class="progress-bar" style="width: 60%"></div>
+                                    </div>
+                                    <span class="level">Niveau 4 (BAC)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="diploma-card">
+                                <div class="diploma-header">
+                                    <span class="diploma-year">2021 - 2022</span>
+                                    <span class="mention-badge mention-assezbien">
+                                        <i class="fas fa-award"></i>
+                                        Mention Assez Bien
+                                    </span>
+                                </div>
+                                <h3 class="diploma-title">Brevet de Technicien Supérieur en Informatique industrielle et Réseau</h3>
+                                <div class="diploma-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Diplôme d'État - Niveau BAC+2</span>
+                                    </div>
+                                </div>
+                                <div class="diploma-footer">
+                                    <div class="progress-indicator">
+                                        <div class="progress-bar" style="width: 70%"></div>
+                                    </div>
+                                    <span class="level">Niveau 5 (BAC+2)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="diploma-card">
+                                <div class="diploma-header">
+                                    <span class="diploma-year">2022 - 2023</span>
+                                    <span class="mention-badge mention-assezbien">
+                                        <i class="fas fa-award"></i>
+                                        Mention Assez Bien
+                                    </span>
+                                </div>
+                                <h3 class="diploma-title">Licence Pro Administration & Sécurité des Réseaux</h3>
+                                <div class="diploma-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>École Supérieure Multinationale de Télécom 🇸🇳</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Diplôme universitaire - Niveau BAC+3</span>
+                                    </div>
+                                </div>
+                                <div class="diploma-footer">
+                                    <div class="progress-indicator">
+                                        <div class="progress-bar" style="width: 80%"></div>
+                                    </div>
+                                    <span class="level">Niveau 6 (BAC+3)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="diploma-card">
+                                <div class="diploma-header">
+                                    <span class="diploma-year">2023 - 2024</span>
+                                    <span class="mention-badge mention-bien">
+                                        <i class="fas fa-award"></i>
+                                        Mention Bien
+                                    </span>
+                                </div>
+                                <h3 class="diploma-title">Licence Pro Vision par ordinateur</h3>
+                                <div class="diploma-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Université de Nîmes 🇫🇷</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Diplôme universitaire - Niveau BAC+3</span>
+                                    </div>
+                                </div>
+                                <div class="diploma-footer">
+                                    <div class="progress-indicator">
+                                        <div class="progress-bar" style="width: 85%"></div>
+                                    </div>
+                                    <span class="level">Niveau 6 (BAC+3)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CARTE INTERACTIVE -->
+                <div class="padd-15">
+                    <h3 class="title">Localisation des Écoles</h3>
+                    <div id="map"></div>
+                    <p style="text-align: center; margin-top: 10px; color: #666; font-size: 14px;">
+                        <i class="fas fa-map-marker-alt" style="color: #e63946;"></i> Cliquez sur les marqueurs pour voir les détails
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- CSS à ajouter -->
-                        
-
-                         
-                        
-                        <div class="diplome-section padd-15">
-                            <h3 class="title">
-                                Diplôme
-                                <button id="toggle-diplome" class="btn-diplome-toggle">Afficher ▼</button>
-                            </h3>
-                            <div class="diplome-content animated-collapse" id="diplome-box">
-                                <div class="diplome-cards-container">
-                                    <!-- Diplôme 1 -->
-                                    <div class="diploma-card">
-                                        <div class="diploma-header">
-                                            <span class="diploma-year">2020</span>
-                                            <span class="mention-badge mention-passable">
-                                                <i class="fas fa-award"></i>
-                                                Mention Passable
-                                            </span>
-                                        </div>
-                                        
-                                        <h3 class="diploma-title">Brevet de Technicien Industriel en Électromécanique</h3>
-                                        
-                                        <div class="diploma-info">
-                                            <div class="info-item">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
-                                            </div>
-                                            <div class="info-item">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Diplôme d'État - Niveau BAC</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="diploma-footer">
-                                            <div class="progress-indicator">
-                                                <div class="progress-bar" style="width: 60%"></div>
-                                            </div>
-                                            <span class="level">Niveau 4 (BAC)</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Diplôme 2 -->
-                                    <div class="diploma-card">
-                                        <div class="diploma-header">
-                                            <span class="diploma-year">2021 - 2022</span>
-                                            <span class="mention-badge mention-assezbien">
-                                                <i class="fas fa-award"></i>
-                                                Mention Assez Bien
-                                            </span>
-                                        </div>
-                                        
-                                        <h3 class="diploma-title">Brevet de Technicien Supérieur en Informatique industrielle et Réseau</h3>
-                                        
-                                        <div class="diploma-info">
-                                            <div class="info-item">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>Centre de Formation Professionnel et Technique Sénégal-Japon 🇸🇳</span>
-                                            </div>
-                                            <div class="info-item">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Diplôme d'État - Niveau BAC+2</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="diploma-footer">
-                                            <div class="progress-indicator">
-                                                <div class="progress-bar" style="width: 70%"></div>
-                                            </div>
-                                            <span class="level">Niveau 5 (BAC+2)</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Diplôme 3 -->
-                                    <div class="diploma-card">
-                                        <div class="diploma-header">
-                                            <span class="diploma-year">2022 - 2023</span>
-                                            <span class="mention-badge mention-assezbien">
-                                                <i class="fas fa-award"></i>
-                                                Mention Assez Bien
-                                            </span>
-                                        </div>
-                                        
-                                        <h3 class="diploma-title">Licence Pro Administration & Sécurité des Réseaux</h3>
-                                        
-                                        <div class="diploma-info">
-                                            <div class="info-item">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>École Supérieure Multinationale de Télécom 🇸🇳</span>
-                                            </div>
-                                            <div class="info-item">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Diplôme universitaire - Niveau BAC+3</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="diploma-footer">
-                                            <div class="progress-indicator">
-                                                <div class="progress-bar" style="width: 80%"></div>
-                                            </div>
-                                            <span class="level">Niveau 6 (BAC+3)</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Diplôme 4 -->
-                                    <div class="diploma-card">
-                                        <div class="diploma-header">
-                                            <span class="diploma-year">2023 - 2024</span>
-                                            <span class="mention-badge mention-bien">
-                                                <i class="fas fa-award"></i>
-                                                Mention Bien
-                                            </span>
-                                        </div>
-                                        
-                                        <h3 class="diploma-title">Licence Pro Vision par ordinateur</h3>
-                                        
-                                        <div class="diploma-info">
-                                            <div class="info-item">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                <span>Université de Nîmes 🇫🇷</span>
-                                            </div>
-                                            <div class="info-item">
-                                                <i class="fas fa-graduation-cap"></i>
-                                                <span>Diplôme universitaire - Niveau BAC+3</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="diploma-footer">
-                                            <div class="progress-indicator">
-                                                <div class="progress-bar" style="width: 85%"></div>
-                                            </div>
-                                            <span class="level">Niveau 6 (BAC+3)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                            
-                            
-                        
-                            <!-- 🌍 Carte interactive AMÉLIORÉE -->
-                            <div class="padd-15">
-                                <h3 class="title">Localisation des Écoles</h3>
-                                <div id="map"></div>
-                                <p style="text-align: center; margin-top: 10px; color: #666; font-size: 14px;">
-                                    <i class="fas fa-map-marker-alt" style="color: #e63946;"></i> Cliquez sur les marqueurs pour voir les détails
-                                </p>
-                            </div>
-                        </div>
                         
                         <!-- Modal Projets -->
 <div id="modal-projets" class="custom-modal">
@@ -2079,7 +2094,282 @@ Mon objectif est de contribuer à des projets innovants tout en continuant à re
     transition: all 0.3s ease;
     color: #e63946;
 }
+/* ========== STYLES POUR LA ROUE DES COMPÉTENCES ========== */
+.skills-wheel-wrapper {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
 
+.skills-wheel-title {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-black-900);
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.skills-wheel-title:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+    border-radius: 3px;
+}
+
+.wheel-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.wheel-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: visible;
+}
+
+.wheel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wheel-item {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--bg-black-100), var(--bg-black-50));
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(230, 57, 70, 0.3);
+    z-index: 10;
+}
+
+.wheel-item:hover {
+    transform: scale(1.12);
+    border-color: #e63946;
+    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+}
+
+.wheel-item:hover .wheel-icon {
+    color: white;
+}
+
+.wheel-item:hover .wheel-label {
+    color: white;
+}
+
+.wheel-item.active {
+    border-color: #e63946;
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.3), 0 10px 25px rgba(230, 57, 70, 0.4);
+    transform: scale(1.08);
+}
+
+.wheel-icon {
+    font-size: 30px;
+    color: #e63946;
+    transition: color 0.3s ease;
+}
+
+.wheel-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-black-700);
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+/* Centre info */
+.wheel-center-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    z-index: 20;
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.5);
+    border: 3px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wheel-center-info:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.center-icon {
+    font-size: 28px;
+    color: white;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.skill-name {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+}
+
+.skill-level {
+    display: block;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Contrôles */
+.wheel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.wheel-control-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+}
+
+.wheel-control-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Dots */
+.wheel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.wheel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bg-black-50);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.wheel-dot.active {
+    width: 25px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+}
+
+/* Animation */
+@keyframes pulseCenter {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .wheel-item {
+        width: 70px;
+        height: 70px;
+    }
+    .wheel-icon {
+        font-size: 26px;
+    }
+    .wheel-label {
+        font-size: 9px;
+    }
+    .wheel-center-info {
+        width: 90px;
+        height: 90px;
+    }
+    .center-icon {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    .personal-info, .skills-wheel-wrapper {
+        width: 100%;
+    }
+    .skills-wheel-wrapper {
+        margin-top: 40px;
+    }
+    .wheel-item {
+        width: 65px;
+        height: 65px;
+    }
+    .wheel-icon {
+        font-size: 24px;
+    }
+    .wheel-center-info {
+        width: 85px;
+        height: 85px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wheel-item {
+        width: 55px;
+        height: 55px;
+    }
+    .wheel-icon {
+        font-size: 20px;
+    }
+    .wheel-label {
+        font-size: 8px;
+    }
+    .wheel-center-info {
+        width: 75px;
+        height: 75px;
+    }
+    .center-icon {
+        font-size: 22px;
+    }
+}
 .interest-card:hover .interest-icon {
     transform: scale(1.05);
 }
@@ -3885,6 +4175,213 @@ function toggleInfo() {
         infoBox.classList.toggle('show');
     }
 }
+// Script pour la roue des compétences
+document.addEventListener('DOMContentLoaded', function() {
+    const wheel = document.getElementById('skillsWheel');
+    if (!wheel) return;
+    
+    const items = document.querySelectorAll('#skillsWheel .wheel-item');
+    const centerInfo = document.getElementById('wheelCenterInfo');
+    const prevBtn = document.getElementById('wheelPrevBtn');
+    const nextBtn = document.getElementById('wheelNextBtn');
+    const playPauseBtn = document.getElementById('wheelPlayPauseBtn');
+    const dotsContainer = document.getElementById('wheelDots');
+    
+    let currentIndex = 0;
+    let autoRotateInterval = null;
+    let isPlaying = true;
+    let itemCount = items.length;
+    let radius = 0;
+    
+    function calculateRadius() {
+        const wrapper = document.querySelector('.wheel-wrapper');
+        if (wrapper) {
+            const wrapperRect = wrapper.getBoundingClientRect();
+            radius = wrapperRect.width * 0.38;
+        }
+        return radius;
+    }
+    
+    function positionItems() {
+        const angleStep = (2 * Math.PI) / itemCount;
+        const itemWidth = items[0]?.offsetWidth || 80;
+        const offset = itemWidth / 2;
+        
+        items.forEach((item, index) => {
+            const angle = index * angleStep - Math.PI / 2;
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
+            
+            item.style.left = `calc(50% + ${x}px - ${offset}px)`;
+            item.style.top = `calc(50% + ${y}px - ${offset}px)`;
+        });
+    }
+    
+    function createDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < itemCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('wheel-dot');
+            if (i === currentIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToItem(i);
+                resetAutoRotate();
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+    
+    function updateDots() {
+        const dots = document.querySelectorAll('.wheel-dot');
+        dots.forEach((dot, i) => {
+            if (i === currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    function updateCenterInfo() {
+        const activeItem = items[currentIndex];
+        const skillName = activeItem.getAttribute('data-skill');
+        const skillLevel = activeItem.getAttribute('data-level');
+        
+        const nameSpan = centerInfo?.querySelector('.skill-name');
+        const levelSpan = centerInfo?.querySelector('.skill-level');
+        
+        if (nameSpan) nameSpan.textContent = skillName;
+        if (levelSpan) levelSpan.textContent = `Niveau ${skillLevel}%`;
+        
+        if (centerInfo) {
+            centerInfo.style.animation = 'none';
+            centerInfo.offsetHeight;
+            centerInfo.style.animation = 'pulseCenter 0.4s ease';
+        }
+        
+        items.forEach(item => item.classList.remove('active'));
+        activeItem.classList.add('active');
+    }
+    
+    function rotateWheel() {
+        const angleStep = 360 / itemCount;
+        const rotationAngle = -(currentIndex * angleStep);
+        if (wheel) wheel.style.transform = `rotate(${rotationAngle}deg)`;
+        updateDots();
+        updateCenterInfo();
+    }
+    
+    function goToItem(index) {
+        if (index < 0) index = itemCount - 1;
+        if (index >= itemCount) index = 0;
+        currentIndex = index;
+        rotateWheel();
+    }
+    
+    function nextItem() {
+        goToItem(currentIndex + 1);
+    }
+    
+    function prevItem() {
+        goToItem(currentIndex - 1);
+    }
+    
+    function startAutoRotate() {
+        if (autoRotateInterval) clearInterval(autoRotateInterval);
+        autoRotateInterval = setInterval(() => {
+            nextItem();
+        }, 3000);
+        isPlaying = true;
+        if (playPauseBtn) {
+            const icon = playPauseBtn.querySelector('i');
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause');
+        }
+    }
+    
+    function stopAutoRotate() {
+        if (autoRotateInterval) {
+            clearInterval(autoRotateInterval);
+            autoRotateInterval = null;
+        }
+        isPlaying = false;
+        if (playPauseBtn) {
+            const icon = playPauseBtn.querySelector('i');
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+        }
+    }
+    
+    function resetAutoRotate() {
+        if (isPlaying) {
+            stopAutoRotate();
+            startAutoRotate();
+        }
+    }
+    
+    function togglePlayPause() {
+        if (isPlaying) {
+            stopAutoRotate();
+        } else {
+            startAutoRotate();
+        }
+    }
+    
+    function handleItemClick(item, index) {
+        if (currentIndex === index) {
+            if (centerInfo) {
+                centerInfo.style.transform = 'translate(-50%, -50%) scale(1.1)';
+                setTimeout(() => {
+                    if (centerInfo) centerInfo.style.transform = 'translate(-50%, -50%) scale(1)';
+                }, 200);
+            }
+            item.style.transform = 'scale(1.15)';
+            setTimeout(() => {
+                item.style.transform = '';
+            }, 300);
+        } else {
+            goToItem(index);
+            resetAutoRotate();
+        }
+    }
+    
+    function init() {
+        calculateRadius();
+        positionItems();
+        createDots();
+        rotateWheel();
+        startAutoRotate();
+        
+        items.forEach((item, index) => {
+            item.addEventListener('click', () => handleItemClick(item, index));
+        });
+        
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+            prevItem();
+            resetAutoRotate();
+        });
+        
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+            nextItem();
+            resetAutoRotate();
+        });
+        
+        if (playPauseBtn) playPauseBtn.addEventListener('click', togglePlayPause);
+        
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                calculateRadius();
+                positionItems();
+                rotateWheel();
+            }, 200);
+        });
+    }
+    
+    if (items.length > 0) init();
+});
 </script>
 </body>
 </html>
