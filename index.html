@@ -1449,7 +1449,531 @@
     overflow: hidden;
     position: relative;
 }
+/* ========== NOUVEAU DESIGN PROJET EN COURS - VERSION ÉLÉGANTE ========== */
 
+.current-project {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de fond subtil */
+.current-project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(230, 57, 70, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.current-project .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Nouveau conteneur principal */
+.project-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background: var(--bg-black-100);
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid var(--bg-black-50);
+}
+
+.project-showcase:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 35px 60px -15px rgba(230, 57, 70, 0.25);
+}
+
+/* Partie gauche - Média (QR Code ou Vidéo) */
+.project-media {
+    flex: 1.2;
+    min-width: 280px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.project-media::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* QR Code Container stylisé */
+.qr-elegant {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease;
+}
+
+.qr-elegant .qr-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ff6b6b;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 1px;
+}
+
+.qr-elegant .qr-code-wrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 28px;
+    display: inline-block;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid rgba(230, 57, 70, 0.3);
+}
+
+.qr-elegant .qr-code-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    border-color: #e63946;
+}
+
+.qr-elegant .qr-code-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 16px;
+    display: block;
+}
+
+.qr-elegant .qr-link {
+    margin-top: 25px;
+}
+
+.qr-elegant .qr-link a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    transition: all 0.3s ease;
+}
+
+.qr-elegant .qr-link a:hover {
+    background: #e63946;
+    transform: translateY(-2px);
+}
+
+/* Partie droite - Informations */
+.project-details {
+    flex: 2;
+    padding: 45px 45px 45px 0;
+}
+
+/* Badge "En cours" moderne */
+.project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    padding: 6px 18px;
+    border-radius: 40px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+.project-badge .pulse-dot {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    animation: pulseRed 1.5s infinite;
+    display: inline-block;
+}
+
+@keyframes pulseRed {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.project-badge span {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Titre principal */
+.project-details h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-black-900);
+    line-height: 1.3;
+}
+
+.project-details h2 .highlight {
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Description courte */
+.project-short-desc {
+    font-size: 1.1rem;
+    color: var(--text-black-700);
+    margin-bottom: 25px;
+    line-height: 1.6;
+    border-left: 3px solid #e63946;
+    padding-left: 20px;
+}
+
+/* Grille des fonctionnalités */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    background: var(--bg-black-50);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(5px);
+    background: rgba(230, 57, 70, 0.1);
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.feature-text {
+    font-weight: 500;
+    color: var(--text-black-900);
+}
+
+.feature-text small {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-black-700);
+    font-weight: normal;
+}
+
+/* Technologies - Design en pills modernes */
+.tech-stack-elegant {
+    margin-bottom: 30px;
+}
+
+.tech-stack-elegant h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #e63946;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-pill {
+    padding: 8px 20px;
+    background: var(--bg-black-50);
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-black-900);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.tech-pill:hover {
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    color: white;
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Barres de progression modernes */
+.progress-section-elegant {
+    margin-bottom: 30px;
+}
+
+.progress-section-elegant h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #e63946;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.progress-item-elegant {
+    margin-bottom: 18px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-black-900);
+}
+
+.progress-header .progress-label i {
+    margin-right: 6px;
+    color: #e63946;
+}
+
+.progress-header .progress-percent {
+    color: #e63946;
+    font-weight: 600;
+}
+
+.progress-bar-elegant {
+    height: 8px;
+    background: var(--bg-black-50);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+    width: 0%;
+    transition: width 1.2s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Timeline du projet */
+.project-timeline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 15px 0;
+    border-top: 1px solid var(--bg-black-50);
+    border-bottom: 1px solid var(--bg-black-50);
+}
+
+.timeline-milestone {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.milestone-date {
+    background: var(--bg-black-50);
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #e63946;
+}
+
+.milestone-label {
+    font-size: 0.85rem;
+    color: var(--text-black-700);
+}
+
+/* CTA section */
+.project-cta-elegant {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    color: white;
+    padding: 14px 35px;
+    border-radius: 45px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(230, 57, 70, 0.4);
+    gap: 15px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-black-900);
+    padding: 14px 35px;
+    border-radius: 45px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--bg-black-50);
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    border-color: #e63946;
+    color: #e63946;
+    transform: translateY(-3px);
+}
+
+/* Animation d'entrée */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-showcase {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .project-showcase {
+        flex-direction: column;
+    }
+    
+    .project-details {
+        padding: 0 35px 45px 35px;
+    }
+    
+    .project-media {
+        padding: 50px 30px;
+    }
+    
+    .project-details h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .current-project {
+        padding: 60px 0;
+    }
+    
+    .project-details {
+        padding: 0 25px 35px 25px;
+    }
+    
+    .project-details h2 {
+        font-size: 1.5rem;
+    }
+    
+    .project-short-desc {
+        font-size: 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-cta-elegant {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-primary, .btn-outline {
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .qr-elegant .qr-code-img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-details h2 {
+        font-size: 1.3rem;
+    }
+    
+    .tech-pill {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
+    
+    .project-timeline {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
 .portfolio-img img,
 .portfolio-img video {
     width: 100%;
@@ -4358,7 +4882,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </section>
         
            </section>
-<!-- Section Projet en Cours -->
+<!-- Section Projet en Cours - Nouveau Design Élégant -->
 <section class="current-project section" id="current-project">
     <div class="container">
         <div class="row">
@@ -4368,84 +4892,137 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         
         <div class="row">
-            <div class="project-content">
-                <!-- Vidéo de présentation -->
-               <!-- QR Code à la place de la vidéo -->
-<div class="project-video padd-15">
-    <div class="qr-section-main">
-        <h3 class="qr-title-main">📱 Scan pour voir la démo Roomify</h3>
-        <p class="qr-instruction-main">
-            Scannez ce QR code avec votre smartphone pour découvrir la démonstration complète du projet
-        </p>
-        
-        <div class="qr-container-main">
-    <div class="qr-code-main">
-        <img src="./qrcode-roomify.png" alt="QR Code Roomify - Scan pour voir la démo complète">
-    </div>
-</div>
-        
-        <p class="qr-link-text">
-            Ou <a href="https://youtu.be/VqGsNbsqjm8" class="qr-link-main">cliquez ici pour voir la vidéo</a>
-        </p>
-    </div>
-</div>
+            <div class="project-showcase">
+                <!-- Partie gauche : QR Code -->
+                <div class="project-media">
+                    <div class="qr-elegant">
+                        <div class="qr-badge">
+                            <i class="fas fa-qrcode"></i> Scan & Découvrez
+                        </div>
+                        <div class="qr-code-wrapper">
+                            <img src="./qrcode-roomify.png" alt="QR Code Roomify" class="qr-code-img">
+                        </div>
+                        <div class="qr-link">
+                            <a href="https://youtu.be/VqGsNbsqjm8" target="_blank">
+                                <i class="fab fa-youtube"></i> Voir la vidéo de démonstration
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
-                <!-- Description du projet -->
-                <div class="project-info padd-15">
-                    <h3>🚀 Roomify - Application de Décoration Assistée par IA</h3>
-                    <div class="project-status">
-                        <span class="status-badge">En Développement</span>
-                        <span class="date-start">Débuté en septembre 2025</span>
+                <!-- Partie droite : Informations -->
+                <div class="project-details">
+                    <div class="project-badge">
+                        <span class="pulse-dot"></span>
+                        <span>EN DÉVELOPPEMENT ACTIF</span>
                     </div>
                     
-                    <div class="project-description">
-                        <p><strong>Roomify révolutionne la décoration d'intérieur en combinant intelligence artificielle et réalité augmentée.</strong></p>
-                        
-                        <h4>🎯 Fonctionnalités principales :</h4>
-                        <ul>
-                            <li>📸 Analyse de photos d'espaces avec IA</li>
-                            <li>🎨 Suggestions de décoration personnalisées</li>
-                            <li>👁️ Visualisation en réalité augmentée</li>
-                            <li>🛒 Intégration e-commerce</li>
-                            <li>📱 Application mobile cross-platform</li>
-                        </ul>
-                        
-                        <h4>🛠️ Technologies utilisées :</h4>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Html & Css</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">ARCore/ARKit</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">PHP & Mysql</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        
-                        <h4>📈 Progression :</h4>
-                        <div class="progress-section">
-                            <div class="progress-item">
-                                <span>IA & Analyse d'images</span>
-                                <div class="project-progress-bar">
-                                    <div class="project-progress-fill" style="width: 40%">40%</div>
-                                </div>
-                            </div>
-                            <div class="progress-item">
-                                <span>Interface utilisateur</span>
-                                <div class="project-progress-bar">
-                                    <div class="project-progress-fill" style="width: 65%">65%</div>
-                                </div>
-                            </div>
-                            <div class="progress-item">
-                                <span>Réalité augmentée</span>
-                                <div class="project-progress-bar">
-                                    <div class="project-progress-fill" style="width: 10%">10%</div>
-                                </div>
+                    <h2>
+                        <span class="highlight">Roomify</span>
+                        <br>Décoration d'intérieur <br>assistée par IA
+                    </h2>
+                    
+                    <p class="project-short-desc">
+                        Une application révolutionnaire qui transforme votre espace de vie en utilisant l'intelligence artificielle et la réalité augmentée.
+                    </p>
+                    
+                    <!-- Fonctionnalités clés -->
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-camera"></i></div>
+                            <div class="feature-text">
+                                Scan IA
+                                <small>Analyse automatique</small>
                             </div>
                         </div>
-                        
-                        <div class="project-cta">
-                            <p><strong>Intéressé par ce projet ?</strong> N'hésitez pas à me contacter pour en discuter !</p>
-                            <a href="#contact" class="btn engagez-moi">Discutons-en !</a>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-magic"></i></div>
+                            <div class="feature-text">
+                                Suggestions
+                                <small>Personnalisées</small>
+                            </div>
                         </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-vr-cardboard"></i></div>
+                            <div class="feature-text">
+                                AR Immersive
+                                <small>Visualisation 3D</small>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="feature-text">
+                                E-commerce
+                                <small>Achat intégré</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technologies -->
+                    <div class="tech-stack-elegant">
+                        <h4><i class="fas fa-code"></i> Technologies</h4>
+                        <div class="tech-pills">
+                            <span class="tech-pill">HTML5/CSS3</span>
+                            <span class="tech-pill">TensorFlow</span>
+                            <span class="tech-pill">ARCore/ARKit</span>
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">PHP/MySQL</span>
+                            <span class="tech-pill">Python</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Progression -->
+                    <div class="progress-section-elegant">
+                        <h4><i class="fas fa-chart-line"></i> Avancement</h4>
+                        <div class="progress-item-elegant">
+                            <div class="progress-header">
+                                <span class="progress-label"><i class="fas fa-brain"></i> IA & Analyse d'images</span>
+                                <span class="progress-percent">40%</span>
+                            </div>
+                            <div class="progress-bar-elegant">
+                                <div class="progress-fill" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item-elegant">
+                            <div class="progress-header">
+                                <span class="progress-label"><i class="fas fa-paint-brush"></i> Interface utilisateur</span>
+                                <span class="progress-percent">65%</span>
+                            </div>
+                            <div class="progress-bar-elegant">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item-elegant">
+                            <div class="progress-header">
+                                <span class="progress-label"><i class="fas fa-vr-cardboard"></i> Réalité augmentée</span>
+                                <span class="progress-percent">10%</span>
+                            </div>
+                            <div class="progress-bar-elegant">
+                                <div class="progress-fill" style="width: 10%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline -->
+                    <div class="project-timeline">
+                        <div class="timeline-milestone">
+                            <span class="milestone-date">Sept 2025</span>
+                            <span class="milestone-label">Début du projet</span>
+                        </div>
+                        <div class="timeline-milestone">
+                            <span class="milestone-date">Juin 2026</span>
+                            <span class="milestone-label">MVP attendu</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action -->
+                    <div class="project-cta-elegant">
+                        <a href="#contact" class="btn-primary">
+                            <i class="fas fa-rocket"></i> Discutons du projet
+                        </a>
+                        <button class="btn-outline" onclick="openDemoModal()">
+                            <i class="fas fa-play-circle"></i> Voir la démo
+                        </button>
                     </div>
                 </div>
             </div>
@@ -5739,6 +6316,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (items.length > 0) init();
 });
+// Animation des barres de progression au scroll
+function animateProgressBars() {
+    const progressBars = document.querySelectorAll('.progress-fill');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+                observer.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    progressBars.forEach(bar => observer.observe(bar));
+}
+
+document.addEventListener('DOMContentLoaded', animateProgressBars);
 </script>
 </body>
 </html>
