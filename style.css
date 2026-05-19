@@ -1280,7 +1280,259 @@ h3.mon-domaine
     background-color: #c63a4e;
     transform: scale(1.05);
 }
+/* ========== CORRECTIONS DARK MODE ========== */
 
+/* Section Projet en Cours - Dark mode */
+body.dark .current-project {
+    background: linear-gradient(135deg, var(--bg-black-900) 0%, var(--bg-black-100) 100%);
+}
+
+body.dark .project-info h3,
+body.dark .project-info h4,
+body.dark .project-description p,
+body.dark .project-description li {
+    color: var(--text-black-700);
+}
+
+body.dark .project-description ul li {
+    color: var(--text-black-700);
+}
+
+body.dark .project-cta {
+    background: var(--bg-black-50);
+    border-left: 4px solid #e63946;
+}
+
+body.dark .project-cta p {
+    color: var(--text-black-700);
+}
+
+body.dark .tech-stack .tech-tag {
+    background: rgba(230, 57, 70, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(230, 57, 70, 0.4);
+}
+
+/* QR Code section - Dark mode */
+body.dark .qr-section-main {
+    background: var(--bg-black-100);
+    border: 3px solid rgba(230, 57, 70, 0.3);
+}
+
+body.dark .qr-title-main {
+    color: var(--text-black-900);
+}
+
+body.dark .qr-instruction-main {
+    color: var(--text-black-700);
+}
+
+body.dark .qr-container-main {
+    background: var(--bg-black-50);
+    border: 3px solid #e63946;
+}
+
+body.dark .qr-link-text {
+    color: var(--text-black-700);
+}
+
+body.dark .qr-link-main {
+    color: #ff6b6b;
+}
+
+body.dark .qr-link-main:hover {
+    color: #e63946;
+}
+
+/* Section Centres d'Intérêt - Dark mode */
+body.dark .interests {
+    background: var(--bg-black-900);
+}
+
+body.dark .interests .section-title h2 {
+    color: var(--text-black-900);
+}
+
+body.dark .interests .section-title p {
+    color: var(--text-black-700);
+}
+
+body.dark .interest-front {
+    background: linear-gradient(135deg, var(--bg-black-100) 0%, var(--bg-black-50) 100%);
+    border: 1px solid var(--bg-black-50);
+}
+
+body.dark .interest-front h3 {
+    color: var(--text-black-900);
+}
+
+body.dark .interest-front p {
+    color: var(--text-black-700);
+}
+
+body.dark .interest-back {
+    background: linear-gradient(135deg, var(--bg-black-100) 0%, var(--bg-black-50) 100%);
+    border: 1px solid var(--bg-black-50);
+}
+
+body.dark .interest-back h3 {
+    color: var(--text-black-900);
+}
+
+body.dark .interest-back p {
+    color: var(--text-black-700);
+}
+
+body.dark .interest-tags .tag {
+    background: rgba(230, 57, 70, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(230, 57, 70, 0.3);
+}
+
+/* Citation - Dark mode */
+body.dark .inspiration-quote {
+    background: var(--bg-black-100);
+    border-left: 4px solid #e63946;
+}
+
+body.dark .inspiration-quote blockquote {
+    color: var(--text-black-700);
+}
+
+body.dark .quote-author {
+    color: var(--text-black-700);
+}
+
+/* Highlight Box (texte passionné par la data) - Dark mode */
+body.dark .highlight-box {
+    background: var(--bg-black-50);
+    border-left: 5px solid #e63946;
+    color: var(--text-black-700);
+}
+
+/* Section About - texte général */
+body.dark .about .about-content .about-text p {
+    color: var(--text-black-700);
+}
+
+body.dark .about .about-content .about-text h3 {
+    color: var(--text-black-900);
+}
+
+body.dark .about .about-content .about-text h3 span {
+    color: var(--skin-color);
+}
+
+/* Logiciels & Outils - Dark mode */
+body.dark .software-skills-elegant {
+    background: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+}
+
+body.dark .software-title {
+    color: var(--text-black-900);
+}
+
+body.dark .software-subtitle {
+    color: var(--text-black-700);
+}
+
+body.dark .software-card-inner {
+    background: linear-gradient(135deg, var(--bg-black-50) 0%, var(--bg-black-100) 100%);
+    border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+body.dark .software-info h5 {
+    color: var(--text-black-900);
+}
+
+body.dark .filter-chip {
+    background: transparent;
+    border: 1px solid var(--bg-black-50);
+    color: var(--text-black-700);
+}
+
+body.dark .filter-chip:hover,
+body.dark .filter-chip.active {
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    color: white;
+    border-color: #e63946;
+}
+
+/* Cartes compétences - Dark mode */
+body.dark .skill-card-front {
+    background: linear-gradient(135deg, var(--bg-black-100) 0%, var(--bg-black-50) 100%);
+    border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+body.dark .skill-card-front h4 {
+    color: var(--text-black-900);
+}
+
+body.dark .skill-card-front p {
+    color: var(--text-black-700);
+}
+
+body.dark .skill-level-badge {
+    background: rgba(230, 57, 70, 0.2);
+    color: #ff6b6b;
+}
+
+/* Timeline et sections formation - Dark mode */
+body.dark .formation-card-modern {
+    background: linear-gradient(135deg, var(--bg-black-100) 0%, var(--bg-black-50) 100%);
+    border: 2px solid var(--bg-black-50);
+}
+
+body.dark .formation-title {
+    color: var(--text-black-900);
+}
+
+body.dark .formation-details {
+    color: var(--text-black-700);
+}
+
+body.dark .formation-status {
+    background: rgba(40, 167, 69, 0.15);
+    color: #6fcf97;
+}
+
+body.dark .diploma-card {
+    background: linear-gradient(135deg, var(--bg-black-100) 0%, var(--bg-black-50) 100%);
+    border: 2px solid var(--bg-black-50);
+}
+
+body.dark .diploma-title {
+    color: var(--text-black-900);
+}
+
+body.dark .info-item {
+    color: var(--text-black-700);
+}
+
+body.dark .info-box {
+    background: linear-gradient(135deg, var(--bg-black-50) 0%, var(--bg-black-100) 100%);
+    color: var(--text-black-700);
+    border-left: 4px solid #e63946;
+}
+
+/* Roue des compétences - Dark mode */
+body.dark .skills-wheel-wrapper .wheel-item {
+    background: linear-gradient(135deg, var(--bg-black-100), var(--bg-black-50));
+    border: 2px solid rgba(230, 57, 70, 0.3);
+}
+
+body.dark .wheel-label {
+    color: var(--text-black-700);
+}
+
+body.dark .wheel-dot {
+    background: var(--bg-black-50);
+}
+
+body.dark .wheel-dot.active {
+    background: linear-gradient(90deg, #e63946, #ff6b6b);
+}
 .diplome-content {
     max-width: 100%;
     background: #fff;
