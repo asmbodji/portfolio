@@ -2871,7 +2871,315 @@
     border: 1px solid #e0e0e0;
     text-align: center;
 }
+/* ========== SECTION EXPÉRIENCES PROFESSIONNELLES ========== */
+.experiences {
+    padding: 40px 0 60px;
+    background: var(--bg-black-900);
+}
 
+.section-subtitle {
+    text-align: center;
+    color: var(--text-black-700);
+    font-size: 1rem;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+
+/* Timeline des expériences */
+.experiences-timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.experience-item {
+    flex: 0 0 calc(33.33% - 30px);
+    max-width: calc(33.33% - 30px);
+    min-width: 280px;
+}
+
+.experience-card {
+    background: var(--bg-black-100);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--bg-black-50);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(230, 57, 70, 0.15);
+    border-color: var(--skin-color);
+}
+
+/* Header avec image */
+.experience-header {
+    position: relative;
+}
+
+.experience-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.experience-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.experience-card:hover .experience-image img {
+    transform: scale(1.05);
+}
+
+.experience-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.experience-badge {
+    display: inline-block;
+    padding: 5px 16px;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+/* Métadonnées */
+.experience-meta {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px 0;
+    font-size: 13px;
+    color: var(--text-black-700);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.experience-meta i {
+    color: var(--skin-color);
+    margin-right: 5px;
+}
+
+/* Corps de la carte */
+.experience-body {
+    padding: 15px 20px 25px;
+    flex: 1;
+}
+
+.experience-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-black-900);
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.experience-company {
+    font-size: 0.95rem;
+    color: var(--skin-color);
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+/* Tags */
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.exp-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    background: rgba(230, 57, 70, 0.1);
+    color: var(--skin-color);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+/* Détails */
+.experience-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience-details li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-black-700);
+    padding: 6px 0;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--bg-black-50);
+}
+
+.experience-details li:last-child {
+    border-bottom: none;
+}
+
+.experience-details li i {
+    color: var(--skin-color);
+    font-size: 14px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* Statistiques */
+.experience-stats {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.stat-item {
+    flex: 0 0 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    min-width: 180px;
+}
+
+.stat-card {
+    background: var(--bg-black-100);
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--bg-black-50);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--skin-color);
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1);
+}
+
+.stat-icon {
+    font-size: 35px;
+    color: var(--skin-color);
+    margin-bottom: 10px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-black-900);
+    line-height: 1.2;
+    background: linear-gradient(135deg, #e63946, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-black-700);
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .experience-item {
+        flex: 0 0 calc(50% - 30px);
+        max-width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .experience-image {
+        height: 180px;
+    }
+    
+    .experience-meta {
+        font-size: 12px;
+        padding: 12px 15px 0;
+    }
+    
+    .experience-body {
+        padding: 12px 15px 20px;
+    }
+    
+    .experience-title {
+        font-size: 1rem;
+    }
+    
+    .stat-item {
+        flex: 0 0 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+        min-width: auto;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .experience-image {
+        height: 160px;
+    }
+}
+
+/* Dark mode */
+body.dark .experience-card {
+    background: var(--bg-black-100);
+    border-color: var(--bg-black-50);
+}
+
+body.dark .experience-title {
+    color: var(--text-black-900);
+}
+
+body.dark .experience-details li {
+    color: var(--text-black-700);
+    border-bottom-color: var(--bg-black-50);
+}
+
+body.dark .stat-card {
+    background: var(--bg-black-100);
+    border-color: var(--bg-black-50);
+}
+
+body.dark .stat-number {
+    background: linear-gradient(135deg, #ff6b6b, #e63946);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.dark .exp-tag {
+    background: rgba(230, 57, 70, 0.2);
+    border-color: rgba(230, 57, 70, 0.3);
+}
 .interest-icon {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -4881,7 +5189,147 @@ document.addEventListener('DOMContentLoaded', function() {
         
         
         </section>
-        
+        <!-- SECTION EXPÉRIENCES PROFESSIONNELLES -->
+<section class="experiences section" id="experiences">
+    <div class="container">
+        <div class="row">
+            <div class="section-title padd-15">
+                <h2>Expériences Professionnelles</h2>
+                <p class="section-subtitle"></p>
+            </div>
+        </div>
+
+        <div class="row experiences-timeline">
+            <!-- Expérience 1 - Hôpital Principal de Dakar -->
+            <div class="experience-item padd-15">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-image">
+                            <img src="hpd.png" alt="Hôpital Principal de Dakar">
+                            <div class="experience-overlay">
+                                <span class="experience-badge">Stage</span>
+                            </div>
+                        </div>
+                        <div class="experience-meta">
+                            <span class="experience-date"><i class="far fa-calendar-alt"></i> Juillet - Septembre 2024</span>
+                            <span class="experience-location"><i class="fas fa-map-marker-alt"></i> Dakar, Sénégal</span>
+                        </div>
+                    </div>
+                    <div class="experience-body">
+                        <h3 class="experience-title">Traitement d'Images </h3>
+                        <h4 class="experience-company">Hôpital Principal de Dakar</h4>
+                        <div class="experience-tags">
+                            <span class="exp-tag">HALCON</span>
+                            <span class="exp-tag">Segmentation</span>
+                            <span class="exp-tag">Imagerie Médicale</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li><i class="fas fa-check-circle"></i> Mise en œuvre d'algorithmes de traitement d'image pour la segmentation et la détection de structures anatomiques avec le machine learning</li>
+                            <li><i class="fas fa-check-circle"></i> Analyse quantitative sur des données d'imagerie médicale</li>
+                            <li><i class="fas fa-check-circle"></i> Maintenance préventive des équipements d'imagerie</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expérience 2 - Freelance -->
+            <div class="experience-item padd-15">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-image">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Freelance Web Development">
+                            <div class="experience-overlay">
+                                <span class="experience-badge">Freelance</span>
+                            </div>
+                        </div>
+                        <div class="experience-meta">
+                            <span class="experience-date"><i class="far fa-calendar-alt"></i> Avril - Octobre 2022</span>
+                            <span class="experience-location"><i class="fas fa-map-marker-alt"></i> Dakar, Sénégal</span>
+                        </div>
+                    </div>
+                    <div class="experience-body">
+                        <h3 class="experience-title">Développement Web E-commerce</h3>
+                        <h4 class="experience-company">Freelance</h4>
+                        <div class="experience-tags">
+                            <span class="exp-tag">HTML/CSS</span>
+                            <span class="exp-tag">MySQL</span>
+                            <span class="exp-tag">PHP</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li><i class="fas fa-check-circle"></i> Conception et développement d'un site e-commerce complet</li>
+                            <li><i class="fas fa-check-circle"></i> Création de l'interface utilisateur responsive</li>
+                            <li><i class="fas fa-check-circle"></i> Gestion des produits, commandes et authentification utilisateur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expérience 3 - CBAO -->
+            <div class="experience-item padd-15">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-image">
+                            <img src="CBAO.jpg" alt="CBAO">
+                            <div class="experience-overlay">
+                                <span class="experience-badge">Stage</span>
+                            </div>
+                        </div>
+                        <div class="experience-meta">
+                            <span class="experience-date"><i class="far fa-calendar-alt"></i> Juin - Juillet 2026</span>
+                            <span class="experience-location"><i class="fas fa-map-marker-alt"></i> Dakar, Sénégal</span>
+                        </div>
+                    </div>
+                    <div class="experience-body">
+                        <h3 class="experience-title">Gestion de Projet IT</h3>
+                        <h4 class="experience-company">CBAO - Groupe Attijariwafa Bank</h4>
+                        <div class="experience-tags">
+                            <span class="exp-tag">Gestion de projet</span>
+                            <span class="exp-tag">Solutions digitales</span>
+                            <span class="exp-tag">Suivi de projets</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li><i class="fas fa-check-circle"></i> Consolidation et suivi de projets IT</li>
+                            <li><i class="fas fa-check-circle"></i> Conception de solutions digitales pour la gestion des CRA</li>
+                            <li><i class="fas fa-check-circle"></i> Support technique et accompagnement des équipes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Statistiques -->
+        <div class="row experience-stats">
+            <div class="stat-item padd-15">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Expériences professionnelles</div>
+                </div>
+            </div>
+            <div class="stat-item padd-15">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Mois d'expérience</div>
+                </div>
+            </div>
+            <div class="stat-item padd-15">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-code"></i></div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Projets réalisés</div>
+                </div>
+            </div>
+            <div class="stat-item padd-15">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-globe-africa"></i></div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Pays d'expérience</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
            </section>
 <!-- Section Projet en Cours - Nouveau Design Élégant -->
 <section class="current-project section" id="current-project">
