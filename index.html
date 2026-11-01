@@ -2203,6 +2203,38 @@
 
 </head>
 <body>
+    <!-- ===== WELCOME OVERLAY : CV ↔ Portfolio ===== -->
+<div id="welcome-overlay" class="welcome-overlay">
+    <div class="welcome-inner">
+        <h1 class="welcome-title">Du CV au <em>portfolio</em></h1>
+        <p class="welcome-sub">Glissez le curseur pour passer de mon parcours à mes projets</p>
+        <div class="welcome-rule"></div>
+
+        <div class="cmp" id="welcome-cmp" tabindex="0" role="slider" aria-label="Comparaison entre le CV et le portfolio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <!-- Remplace src par le chemin de ton image de CV -->
+            <img class="cv" src="AS.jpg" alt="Mon CV">
+            
+            <div class="top" id="welcome-top">
+                <!-- Remplace src par l'image de ton portfolio (bannière ou capture) -->
+                <img src="por.png" alt="Mon Portfolio">
+            </div>
+
+            <a class="hot" id="welcome-hot" href="#" aria-label="Visiter mon portfolio"></a>
+
+            <div class="bar" id="welcome-bar">
+                <div class="knob">◀ ▶</div>
+            </div>
+
+            <span class="tag tl">Mon CV</span>
+            <span class="tag tr">Mon portfolio</span>
+        </div>
+
+        <button class="welcome-cta" id="enter-portfolio">
+            Visiter mon portfolio <span aria-hidden="true">→</span>
+        </button>
+        <div class="welcome-url">asmbodji.github.io/portfolio</div>
+    </div>
+</div>
     <!-- Bannière Alternance -->
 <div id="alternance-banner" class="alternance-banner">
     <div class="banner-content">
@@ -3862,6 +3894,261 @@ body {
         font-size: 2.2rem;
     }
 }
+
+
+/* ===== WELCOME OVERLAY ===== */
+.welcome-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99990;
+    background: #0f0f12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 16px;
+    overflow-y: auto;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.welcome-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.welcome-inner {
+    width: 100%;
+    max-width: 980px;
+    text-align: center;
+    color: #f4f1ee;
+}
+
+.welcome-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 5.5vw, 3rem);
+    margin: 0 0 10px;
+    letter-spacing: 0.01em;
+}
+
+.welcome-title em {
+    font-style: normal;
+    color: #e63946;
+}
+
+.welcome-sub {
+    margin: 0 0 6px;
+    color: #a8a3a6;
+    font-size: 0.95rem;
+}
+
+.welcome-rule {
+    width: 64px;
+    height: 2px;
+    background: #e63946;
+    margin: 14px auto 26px;
+}
+
+/* Comparateur */
+.cmp {
+    position: relative;
+    width: 100%;
+    max-width: 980px;
+    aspect-ratio: 1395/1171;
+    border-radius: 18px;
+    overflow: hidden;
+    user-select: none;
+    touch-action: pan-y;
+    cursor: ew-resize;
+    background: radial-gradient(120% 100% at 0% 100%, #3a1417 0%, #17171b 55%);
+    box-shadow: 0 24px 60px -20px #000c, 0 0 0 1px #ffffff14;
+    margin: 0 auto;
+}
+
+.cv {
+    position: absolute;
+    top: 3%;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 94%;
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 0 12px 40px #0009;
+    pointer-events: none;
+    max-width: none;
+}
+
+.top {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 0 0 50%);
+}
+
+.top img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.hot {
+    position: absolute;
+    left: 5%;
+    top: 59.3%;
+    width: 30.7%;
+    height: 9.4%;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: box-shadow 0.3s, background 0.3s;
+    z-index: 5;
+}
+
+.hot:hover,
+.hot:focus-visible {
+    background: #e6394620;
+    box-shadow: 0 0 0 2px #e63946, 0 0 28px #e6394688;
+    outline: none;
+}
+
+.bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    margin-left: -1px;
+    background: linear-gradient(#fff0, #fff 12%, #fff 88%, #fff0);
+    pointer-events: none;
+    z-index: 4;
+}
+
+.knob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin: -25px 0 0 -25px;
+    border-radius: 50%;
+    background: #fffffff2;
+    color: #1a1719;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px #000a;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.tag {
+    position: absolute;
+    top: 14px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #0009;
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: clamp(0.7rem, 2.3vw, 0.85rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.tl { left: 14px; }
+.tr { right: 14px; }
+
+/* Bouton CTA */
+.welcome-cta {
+    margin-top: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+    border-radius: 999px;
+    background: #e63946;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 10px 30px -8px #e63946b0;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.welcome-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px -8px #e63946cc;
+}
+
+.welcome-url {
+    margin-top: 12px;
+    color: #a8a3a6;
+    font-size: 0.8rem;
+}
+
+/* ===== TRANSITION BARRES (rouge + noir profond) ===== */
+html.pt-covering::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: #0f0f12;
+    z-index: 99998;
+}
+
+.pt-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.pt-overlay.is-active {
+    visibility: visible;
+    pointer-events: all;
+}
+
+.pt-bar {
+    position: absolute;
+    left: -160px;
+    width: calc(100% + 320px);
+    border-radius: 999px;
+    transform: translateX(-101%);
+    will-change: transform;
+}
+
+.pt-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.pt-overlay.show-label .pt-label {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pt-overlay,
+    html.pt-covering::before {
+        display: none !important;
+    }
+}
 </style>
 
 <script>
@@ -4778,7 +5065,155 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<script>
+/* ===== WELCOME OVERLAY + TRANSITION ===== */
+(function () {
+    'use strict';
 
+    // ----- Configuration des barres (Option B : rouge + noir profond) -----
+    const CONFIG = {
+        colors: ['#e63946', '#c1121f', '#1a1a1a', '#0f0f12', '#1a1a1a', '#c1121f', '#e63946'],
+        duration: 700,
+        stagger: 70,
+        easing: 'cubic-bezier(.76, 0, .24, 1)'
+    };
+
+    const root = document.documentElement;
+    let overlay, bars = [], label, busy = false;
+
+    // ----- Construction de l'overlay de transition -----
+    function buildTransition() {
+        overlay = document.createElement('div');
+        overlay.className = 'pt-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
+
+        const n = CONFIG.colors.length;
+        for (let i = 0; i < n; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'pt-bar';
+            bar.style.background = CONFIG.colors[i];
+            bar.style.top = (i * 100 / n) + '%';
+            bar.style.height = (100 / n * 1.9) + '%';
+            bar.style.zIndex = i + 1;
+            overlay.appendChild(bar);
+            bars.push(bar);
+        }
+
+        label = document.createElement('div');
+        label.className = 'pt-label';
+        label.textContent = 'Portfolio';
+        overlay.appendChild(label);
+
+        document.body.appendChild(overlay);
+    }
+
+    function animateBars(from, to) {
+        let last;
+        bars.forEach((bar, i) => {
+            last = bar.animate(
+                [{ transform: from }, { transform: to }],
+                { duration: CONFIG.duration, delay: i * CONFIG.stagger, easing: CONFIG.easing, fill: 'both' }
+            );
+        });
+        return last.finished;
+    }
+
+    function resetOverlay() {
+        bars.forEach(b => {
+            b.getAnimations().forEach(a => a.cancel());
+            b.style.transform = '';
+        });
+        overlay.classList.remove('is-active', 'show-label');
+        root.classList.remove('pt-covering');
+        busy = false;
+    }
+
+    // ----- Lancer la transition et révéler le portfolio -----
+    function enterPortfolio() {
+        if (busy) return;
+        busy = true;
+
+        overlay.classList.add('is-active');
+        root.classList.add('pt-covering');
+
+        animateBars('translateX(-101%)', 'translateX(0)').then(() => {
+            overlay.classList.add('show-label');
+
+            // Après un court délai, on cache le welcome et on révèle le site
+            setTimeout(() => {
+                const welcome = document.getElementById('welcome-overlay');
+                if (welcome) {
+                    welcome.classList.add('hidden');
+                }
+
+                // On laisse le label un peu, puis on ouvre les barres
+                setTimeout(() => {
+                    overlay.classList.remove('show-label');
+                    animateBars('translateX(0)', 'translateX(101%)').then(() => {
+                        resetOverlay();
+                    });
+                }, 600);
+            }, 400);
+        });
+    }
+
+    // ----- Slider CV / Portfolio -----
+    function initSlider() {
+        const cmp = document.getElementById('welcome-cmp');
+        const top = document.getElementById('welcome-top');
+        const bar = document.getElementById('welcome-bar');
+        if (!cmp || !top || !bar) return;
+
+        function set(p) {
+            p = Math.max(0, Math.min(100, p));
+            top.style.clipPath = `inset(0 0 0 ${p}%)`;
+            bar.style.left = p + '%';
+            cmp.setAttribute('aria-valuenow', Math.round(p));
+        }
+
+        function mv(e) {
+            const r = cmp.getBoundingClientRect();
+            set((e.clientX - r.left) / r.width * 100);
+        }
+
+        let dragging = false;
+
+        cmp.addEventListener('pointerdown', e => {
+            dragging = true;
+            cmp.setPointerCapture(e.pointerId);
+            mv(e);
+        });
+        cmp.addEventListener('pointermove', e => { if (dragging) mv(e); });
+        cmp.addEventListener('pointerup', () => dragging = false);
+        cmp.addEventListener('pointercancel', () => dragging = false);
+
+        cmp.addEventListener('keydown', e => {
+            const v = +cmp.getAttribute('aria-valuenow');
+            if (e.key === 'ArrowLeft') set(v - 5);
+            if (e.key === 'ArrowRight') set(v + 5);
+        });
+    }
+
+    // ----- Initialisation -----
+    document.addEventListener('DOMContentLoaded', () => {
+        buildTransition();
+        initSlider();
+
+        // Bouton principal
+        const btn = document.getElementById('enter-portfolio');
+        if (btn) btn.addEventListener('click', enterPortfolio);
+
+        // Hotspot du slider
+        const hot = document.getElementById('welcome-hot');
+        if (hot) {
+            hot.addEventListener('click', e => {
+                e.preventDefault();
+                enterPortfolio();
+            });
+        }
+    });
+})();
+</script>
         </section>
  <section id="about" data-aos="fade-right" data-aos-duration="1000">
         ...
